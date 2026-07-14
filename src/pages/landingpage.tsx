@@ -16,7 +16,7 @@ export const LandingPage: React.FC = () => {
         {/* Hero Section dengan Gambar Latar Belakang */}
         <section 
   className="relative w-full h-[600px] bg-cover bg-center flex items-center justify-center"
-  style={{ backgroundImage: "url('/assets/img/hero-bg.png')" }}
+  style={{ backgroundImage: "url('/img/hero-bg.png')" }}
 >
           {/* Overlay Gelap Halus untuk Meningkatkan Kontras Teks dan Filter */}
           <div className="absolute inset-0 bg-slate-900/40 z-0"></div>
