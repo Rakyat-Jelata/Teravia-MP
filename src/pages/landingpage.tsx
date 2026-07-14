@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { FilterBar } from '../components/property/FilterBar';
-import heroBgImg from '../assets/img/hero-bg.png'; // Memanggil aset gambar hero Anda
+import heroBgImg from '/assets/img/hero-bg.png'; // Memanggil aset gambar hero Anda
 
 export const LandingPage: React.FC = () => {
   return (
