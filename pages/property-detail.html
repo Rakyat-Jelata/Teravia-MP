@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Properti - TERAVIA</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/font-icons.css">
+
+  <!-- CSS Global (Keluar 1 folder ke parent directory) -->
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  
+  <!-- CSS Khusus Halaman Detail Properti -->
+  <link rel="stylesheet" href="../assets/css/pages/property-detail.css">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .property-carousel img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .agent-card {
+      position: sticky;
+      top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bagian Navbar (Dibuat dinamis oleh navbar.js) -->
+  <div id="navbar-component"></div>
+
+  <main class="container py-5">
+    <!-- Breadcrumb Navigasi -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none">Beranda</a></li>
+        <li class="breadcrumb-item"><a href="home.html" class="text-decoration-none">Properti</a></li>
+        <li class="breadcrumb-item active" id="breadcrumb-active" aria-current="page">Detail</li>
+      </ol>
+    </nav>
+
+    <!-- Area Konten Utama -->
+    <div class="row g-4" id="detail-container">
+      <!-- Loading State Sementara -->
+      <div class="col-12 text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3 text-muted">Sedang memuat informasi detail properti...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bagian Footer (Dibuat dinamis oleh footer.js) -->
+  <div id="footer-component"></div>
+
+  <!-- ==================== JS DEPENDENCIES ==================== -->
+  <!-- 1. Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- 2. Konfigurasi & Inisialisasi DB (Naik 1 folder) -->
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase.js"></script>
+  
+  <!-- 3. Komponen UI Global -->
+  <script src="../assets/js/components/navbar.js"></script>
+  <script src="../assets/js/components/footer.js"></script>
+  <script src="../assets/js/components/toast.js"></script>
+
+  <!-- 4. Services Logic -->
+  <script src="../assets/js/services/property-service.js"></script>
+
+  <!-- 5. Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- 6. Logika Renderer Dinamis Detail Halaman -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const container = document.getElementById("detail-container");
+      const breadcrumbActive = document.getElementById("breadcrumb-active");
+
+      // 1. Ambil Property ID dari parameter URL (?id=...)
+      const urlParams = new URLSearchParams(window.location.search);
+      const propertyId = urlParams.get('id');
+
+      if (!propertyId) {
+        container.innerHTML = `
+          <div class="col-12 text-center py-5">
+            <h3 class="text-danger">ID Properti tidak valid!</h3>
+            <p class="text-muted">Kembali ke halaman utama untuk memilih properti kembali.</p>
+            <a href="home.html" class="btn btn-primary mt-3">Kembali ke Galeri</a>
+          </div>`;
+        return;
+      }
+
+      try {
+        // 2. Gunakan PropertyService global untuk mengambil data
+        if (window.TERAVIA_APP && window.TERAVIA_APP.PropertyService) {
+          const property = await window.TERAVIA_APP.PropertyService.getPropertyDetail(propertyId);
+
+          if (!property) {
+            container.innerHTML = `
+              <div class="col-12 text-center py-5">
+                <h3 class="text-muted">Properti tidak ditemukan atau sudah dihapus.</h3>
+                <a href="home.html" class="btn btn-primary mt-3">Cari Properti Lain</a>
+              </div>`;
+            return;
+          }
+
+          // Update judul halaman & breadcrumb
+          document.title = `${property.title} - TERAVIA`;
+          breadcrumbActive.textContent = property.title;
+
+          // Siapkan gambar (atau placeholder jika kosong)
+          const images = property.property_images && property.property_images.length > 0
+            ? property.property_images
+            : [{ image_url: '../assets/img/property-placeholder.jpg.jpeg' }];
+
+          // Render halaman secara utuh
+          container.innerHTML = `
+            <!-- Sisi Kiri: Gambar & Deskripsi Teknis -->
+            <div class="col-lg-8">
+              <!-- Galeri Carousel Gambar -->
+              <div id="carouselProperty" class="carousel slide property-carousel shadow-sm mb-4" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  ${images.map((img, idx) => `
+                    <div class="carousel-item ${idx === 0 ? 'active' : ''}">
+                      <img src="${img.image_url}" class="d-block w-100" alt="Foto Properti ${idx + 1}">
+                    </div>
+                  `).join('')}
+                </div>
+                ${images.length > 1 ? `
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselProperty" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Sebelumnya</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselProperty" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Selanjutnya</span>
+                  </button>
+                ` : ''}
+              </div>
+
+              <!-- Judul, Tipe, & Harga -->
+              <div class="card p-4 shadow-sm mb-4">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <span class="badge bg-primary px-3 py-2 fs-6">${property.transaction_type}</span>
+                  <span class="text-muted small">Diposting pada: ${new Date(property.created_at).toLocaleDateString('id-ID')}</span>
+                </div>
+                <h2 class="fw-bold mb-2">${property.title}</h2>
+                <p class="text-muted fs-5 mb-3"><i class="bi bi-geo-alt-fill text-danger"></i> ${property.address}, ${property.city}, ${property.province}</p>
+                <h3 class="text-success fw-bold">Rp ${Number(property.price).toLocaleString('id-ID')}</h3>
+              </div>
+
+              <!-- Deskripsi Tambahan -->
+              <div class="card p-4 shadow-sm mb-4">
+                <h4 class="fw-bold mb-3 border-bottom pb-2">Deskripsi</h4>
+                <p style="line-height: 1.7; white-space: pre-wrap;">${property.description || 'Tidak ada deskripsi tambahan.'}</p>
+              </div>
+            </div>
+
+            <!-- Sisi Kanan: Informasi Pemilik / Broker -->
+            <div class="col-lg-4">
+              <div class="card p-4 shadow-sm agent-card border-primary">
+                <h4 class="fw-bold mb-3 border-bottom pb-2">Hubungi Pemasang</h4>
+                <div class="text-center py-3">
+                  <img src="${property.profiles?.avatar_url || 'https://via.placeholder.com/100'}" class="rounded-circle mb-3" alt="Avatar Agen" style="width: 80px; height: 80px; object-fit: cover;">
+                  <h5 class="fw-bold mb-1">${property.profiles?.full_name || 'Agen Teravia'}</h5>
+                  <p class="text-muted small">${property.profiles?.role || 'Pemasang Iklan'}</p>
+                </div>
+                
+                <div class="d-grid gap-2">
+                  <a href="https://wa.me/${property.profiles?.phone?.replace(/\D/g, '') || ''}" target="_blank" class="btn btn-success btn-lg">
+                    <i class="bi bi-whatsapp"></i> Hubungi via WhatsApp
+                  </a>
+                  <a href="mailto:${property.profiles?.email || ''}" class="btn btn-outline-primary">
+                    <i class="bi bi-envelope"></i> Kirim Email
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          container.innerHTML = `
+            <div class="col-12 text-center py-5 text-warning">
+              <h3>Modul layanan belum dikonversi.</h3>
+              <p>Pastikan file property-service.js sudah dikonversi ke Global Namespace.</p>
+            </div>`;
+        }
+      } catch (err) {
+        console.error("Gagal memuat detail properti:", err);
+        container.innerHTML = `
+          <div class="col-12 text-center py-5 text-danger">
+            <h3>Terjadi Kesalahan!</h3>
+            <p>Gagal memuat informasi dari basis data Supabase.</p>
+          </div>`;
+      }
+    });
+  </script>
+</body>
+</html>
