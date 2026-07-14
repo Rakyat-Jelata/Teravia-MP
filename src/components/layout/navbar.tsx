@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import logoImg from '../../assets/img/logo.png'; // Memanggil aset logo Anda
+import logoImg from '/assets/img/logo.png'; // Memanggil aset logo Anda
 
 export const Navbar: React.FC = () => {
   const { user, profile } = useAuth();
