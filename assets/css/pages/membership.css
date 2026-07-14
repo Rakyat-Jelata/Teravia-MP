@@ -1,0 +1,367 @@
+/* =====================================================
+   TERAVIA - Membership Page Styles
+   File: assets/css/pages/membership.css
+===================================================== */
+
+
+/* ==============================
+   MEMBERSHIP PAGE WRAPPER
+============================== */
+
+.membership-page {
+    min-height: calc(100vh - var(--header-height));
+    background: var(--bg-light);
+    padding: 60px 0;
+}
+
+
+.membership-container {
+    max-width: var(--container-width);
+    margin:auto;
+    padding:0 20px;
+}
+
+
+/* ==============================
+   HERO MEMBERSHIP
+============================== */
+
+.membership-hero {
+    text-align:center;
+    margin-bottom:50px;
+}
+
+
+.membership-hero h1 {
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+
+.membership-hero p {
+    max-width:650px;
+    margin:auto;
+    color:var(--text-muted);
+    line-height:1.7;
+}
+
+
+/* ==============================
+   MEMBERSHIP CARDS
+============================== */
+
+.membership-plans {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+
+.membership-card {
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    padding:35px 30px;
+    box-shadow:var(--shadow-sm);
+    position:relative;
+    border:1px solid var(--border-color);
+    transition:var(--transition);
+}
+
+
+.membership-card:hover {
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-md);
+}
+
+
+/* Highlight Premium */
+
+.membership-card.featured {
+    border:2px solid var(--primary);
+}
+
+
+.membership-badge {
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:var(--primary);
+    color:white;
+    padding:6px 15px;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:700;
+}
+
+
+/* ==============================
+   PLAN HEADER
+============================== */
+
+.plan-icon {
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:var(--primary-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    color:var(--primary);
+    margin-bottom:20px;
+}
+
+
+.plan-name {
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+
+.plan-description {
+    color:var(--text-muted);
+    font-size:14px;
+    min-height:45px;
+}
+
+
+/* ==============================
+   PRICE
+============================== */
+
+.plan-price {
+    margin:25px 0;
+}
+
+
+.plan-price h2 {
+    font-size:36px;
+    color:var(--primary);
+}
+
+
+.plan-price span {
+    font-size:14px;
+    color:var(--text-muted);
+}
+
+
+/* ==============================
+   BENEFIT LIST
+============================== */
+
+.plan-features {
+    margin:25px 0;
+}
+
+
+.plan-features li {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+    font-size:15px;
+}
+
+
+.plan-features li i {
+    color:#16a34a;
+}
+
+
+/* Disabled Feature */
+
+.plan-features li.disabled {
+    color:var(--text-muted);
+}
+
+
+.plan-features li.disabled i {
+    color:#dc2626;
+}
+
+
+/* ==============================
+   BUTTON
+============================== */
+
+.membership-action {
+    margin-top:30px;
+}
+
+
+.membership-action .btn {
+    width:100%;
+}
+
+
+/* ==============================
+   CURRENT MEMBERSHIP STATUS
+============================== */
+
+.membership-status {
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    padding:30px;
+    box-shadow:var(--shadow-sm);
+    margin-bottom:40px;
+}
+
+
+.status-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+.status-badge {
+    padding:8px 18px;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:700;
+}
+
+
+.status-badge.active {
+    background:#dcfce7;
+    color:#15803d;
+}
+
+
+.status-badge.expired {
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+
+.status-info {
+    margin-top:20px;
+}
+
+
+.status-info p {
+    margin-bottom:8px;
+}
+
+
+/* ==============================
+   PREMIUM BENEFIT SECTION
+============================== */
+
+.membership-benefits {
+    margin-top:70px;
+}
+
+
+.benefit-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+
+.benefit-item {
+    background:var(--white);
+    padding:25px;
+    border-radius:var(--radius-md);
+    text-align:center;
+    box-shadow:var(--shadow-sm);
+}
+
+
+.benefit-icon {
+    width:60px;
+    height:60px;
+    margin:auto;
+    margin-bottom:15px;
+    border-radius:50%;
+    background:var(--primary-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--primary);
+    font-size:25px;
+}
+
+
+.benefit-item h3 {
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+
+.benefit-item p {
+    color:var(--text-muted);
+    font-size:14px;
+    line-height:1.6;
+}
+
+
+/* ==============================
+   PAYMENT INFO
+============================== */
+
+.payment-info {
+    background:var(--white);
+    padding:30px;
+    border-radius:var(--radius-lg);
+    margin-top:40px;
+}
+
+
+.payment-info h3 {
+    margin-bottom:15px;
+}
+
+
+.payment-method {
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+
+.payment-method span {
+    padding:10px 18px;
+    border:1px solid var(--border-color);
+    border-radius:var(--radius-md);
+    font-size:14px;
+}
+
+
+/* ==============================
+   RESPONSIVE SUPPORT
+============================== */
+
+@media(max-width:992px){
+
+    .membership-plans {
+        grid-template-columns:1fr;
+    }
+
+
+    .benefit-grid {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:576px){
+
+    .membership-hero h1 {
+        font-size:28px;
+    }
+
+
+    .benefit-grid {
+        grid-template-columns:1fr;
+    }
+
+
+    .membership-card {
+        padding:25px;
+    }
+
+  }
