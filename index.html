@@ -1,182 +1,128 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TERAVIA - Jual, Beli, & Sewa Properti Seluruh Indonesia</title>
-  <!-- ==================== MOBILE CONSOLE (ERUDA) ==================== -->
-  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-  <script>
-    eruda.init();
-  </script>
-  <!-- 1. Google Fonts (Inter / Poppins agar teksnya modern) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERAVIA - Jual, Beli, & Sewa Properti Seluruh Indonesia</title>
 
-  <!-- 2. Bootstrap 5 CSS (Pondasi Grid & Komponen) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- 3. Bootstrap Icons (Untuk ikon lokasi, dll) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- 4. CSS Lokal Teravia (Menimpa Bootstrap dengan tema Teravia) -->
-  <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/variables.css">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
-  <link rel="stylesheet" href="assets/css/pages/home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <style>
-    /* Tambahan styling instan agar font seragam dan tombol kontras */
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .hero-section {
-      position: relative;
-    }
-    /* Memastikan teks subtitle putih transparan agar terbaca di atas background */
-    .hero-subtitle {
-      color: rgba(255, 255, 255, 0.85);
-    }
-  </style>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/pages/home.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-subtitle { color: rgba(255, 255, 255, 0.85); }
+    </style>
 </head>
 <body>
 
-  <!-- Bagian Navbar (Akan di-render dinamis oleh navbar.js) -->
-  <div id="navbar-component"></div>
-
-  <!-- HERO SECTION -->
-  <section class="hero-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/img/hero-bg.png'); background-size: cover; background-position: center; min-height: 80vh; display: flex; align-items: center; color: var(--white, #ffffff);">
-    <div class="container text-center">
-      <h1 class="hero-title mb-3" style="font-size: 3rem; font-weight: bold;">Jual - Beli - Sewa Properti Seluruh Indonesia</h1>
-      <p class="hero-subtitle mb-5" style="font-size: 1.25rem;">Temukan rumah, apartemen, tanah, dan properti komersial impian Anda dengan mudah dan aman.</p>
-      
-      <!-- Quick Search Form -->
-      <div class="quick-search-card card p-4 mx-auto" style="max-width: 800px; background: rgba(255, 255, 255, 0.95); border-radius: 8px; color: var(--text-dark, #333);">
-        <form action="pages/home.html" method="GET" class="row g-3">
-          <div class="col-md-5">
-            <input type="text" name="keyword" class="form-control" placeholder="Cari kota, area, atau nama proyek..." required>
-          </div>
-          <div class="col-md-4">
-            <select name="transaction" class="form-select">
-              <option value="">Semua Status Transaksi</option>
-              <option value="Jual">Dijual</option>
-              <option value="Sewa">Disewakan</option>
-            </select>
-          </div>
-          <div class="col-md-3">
-            <button type="submit" class="btn btn-primary w-100">Cari Sekarang</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED PROPERTIES SECTION -->
-  <section class="featured-section py-5 bg-light">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 class="section-title">Rekomendasi Properti Terbaru</h2>
-          <p class="text-muted">Pilihan properti terbaik yang baru saja didaftarkan</p>
-        </div>
-        <a href="pages/home.html" class="btn btn-outline-primary">Lihat Semua</a>
-      </div>
-
-      <!-- Grid Tempat Menampilkan Properti Pilihan (Akan diisi dinamis oleh JS) -->
-      <div id="featured-property-grid" class="row g-4">
-        <div class="text-center py-4">
-          <p class="text-muted">Sedang mengambil properti unggulan...</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION SECTION -->
-  <section class="cta-section py-5 text-center" style="background-color: var(--primary-color-dark, #1a365d); color: white;">
-    <div class="container py-4">
-      <h2 class="mb-3">Ingin Memasarkan Properti Anda Sendiri?</h2>
-      <p class="mb-4" style="max-width: 600px; margin: 0 auto;">Daftarkan diri Anda sebagai pemilik atau agen, dan iklankan properti Anda ke ribuan calon pembeli setiap harinya secara gratis!</p>
-      <div class="d-flex justify-content-center gap-3">
-        <a href="register.html" class="btn btn-primary btn-lg">Mulai Pasang Iklan</a>
-        <a href="pages/home.html" class="btn btn-outline-light btn-lg">Jelajahi Dulu</a>
-      </div>
-    </div>
-  </section>
-  
-   <!-- Tombol Darurat untuk Mengisi Data Dummy (Bisa dihapus nanti jika sudah selesai) -->
-<div class="container my-4 text-center">
-  <button onclick="window.TERAVIA_SEEDER.run()" class="btn btn-warning btn-sm">
-    ⚠️ Isi Data Dummy Ke Supabase (Klik Sekali Saja)
-  </button>
-</div>
-  
-  <!-- Bagian Footer (Akan di-render dinamis oleh footer.js) -->
-  <div id="footer-component"></div>
-
-  <!-- ==================== JS DEPENDENCIES ==================== -->
-  <!-- 1. Supabase SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  
-  <script src="assets/js/config.js"></script>
-  <script src="assets/js/supabase.js"></script>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      const navbarContainer = document.getElementById("navbar-component");
-      if (navbarContainer) {
-        const client = window.supabaseClient;
-        let authMenuHtml = `
-          <li class="nav-item"><a class="nav-link text-dark me-2" href="login.html">Masuk</a></li>
-          <li class="nav-item"><a class="btn btn-primary text-white px-3" href="register.html">Daftar</a></li>
-        `;
-
-        if (client) {
-          const { data: { session } } = await client.auth.getSession();
-          if (session) {
-            authMenuHtml = `
-              <li class="nav-item"><a class="nav-link text-dark btn btn-outline-primary px-3" href="pages/home.html">Dashboard</a></li>
-            `;
-          }
-        }
-
-        navbarContainer.innerHTML = `
-          <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
-            <div class="container">
-              <a class="navbar-brand fw-bold text-primary fs-3" href="index.html">TERAVIA</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                  <li class="nav-item"><a class="nav-link text-dark" href="index.html">Beranda</a></li>
-                  <li class="nav-item"><a class="nav-link text-dark" href="pages/home.html">Cari Properti</a></li>
-                </ul>
-                <ul class="navbar-nav align-items-center gap-2">
-                  ${authMenuHtml}
-                </ul>
-              </div>
+    <div id="navbar-component">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 sticky-top">
+        <div class="container">
+          <a class="navbar-brand fw-bold text-primary fs-3" href="index.html">TERAVIA</a>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-semibold" href="index.html">Beranda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-semibold" href="pages/home.html">Cari Properti</a>
+              </li>
+            </ul>
+            
+            <div class="d-flex align-items-center gap-2">
+              <a href="login.html" class="btn btn-outline-primary px-3">Masuk</a>
+              <a href="register.html" class="btn btn-primary text-white px-3">Daftar</a>
             </div>
-          </nav>
-        `;
-      }
-    });
-  </script>
-
-  <div class="container my-5 text-center">
-    <div class="card p-4 border-warning bg-light mx-auto" style="max-width: 500px;">
-      <h5 class="fw-bold text-warning mb-2">Panel Kontrol Data Dummy</h5>
-      <p class="text-muted small">Jika kamu sudah mendaftar/login, ketuk tombol di bawah untuk mengisi database Supabase secara otomatis.</p>
-      <button onclick="if(window.TERAVIA_SEEDER){ window.TERAVIA_SEEDER.run(); } else { alert('File seed.js belum termuat sempurna'); }" class="btn btn-warning w-100 fw-bold shadow-sm">
-        ⚡ Jalankan Pengisi Data Dummy
-      </button>
+          </div>
+        </div>
+      </nav>
     </div>
-  </div>
 
-  <script src="assets/js/seed.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <section class="hero-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/img/hero-bg.png'); background-size: cover; background-position: center; min-height: 75vh; display: flex; align-items: center; color: #ffffff;">
+        <div class="container text-center">
+            <h1 class="hero-title mb-3" style="font-size: 2.8rem; font-weight: 700;">Jual - Beli - Sewa Properti Seluruh Indonesia</h1>
+            <p class="hero-subtitle mb-4" style="font-size: 1.1rem;">Temukan rumah, apartemen, tanah, dan properti komersial impian Anda dengan mudah dan aman.</p>
+            
+            <div class="quick-search-card card p-4 mx-auto shadow-sm" style="max-width: 800px; background: rgba(255, 255, 255, 0.95); border-radius: 12px; color: #333;">
+                <form action="pages/home.html" method="GET" class="row g-3">
+                    <div class="col-md-5">
+                        <input type="text" name="keyword" class="form-control" placeholder="Cari kota, area, atau nama proyek...">
+                    </div>
+                    <div class="col-md-4">
+                        <select name="transaction" class="form-select">
+                            <option value="">Semua Status Transaksi</option>
+                            <option value="Jual">Dijual</option>
+                            <option value="Sewa">Disewakan</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary w-100 fw-bold">Cari Sekarang</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-section py-5 bg-light">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="section-title fw-bold h3 mb-1">Rekomendasi Properti Terbaru</h2>
+                    <p class="text-muted mb-0">Pilihan properti terbaik yang baru saja didaftarkan</p>
+                </div>
+                <a href="pages/home.html" class="btn btn-outline-primary btn-sm">Lihat Semua</a>
+            </div>
+            
+            <div id="featured-property-grid" class="row g-4">
+                <div class="col-12 text-center py-4">
+                    <p class="text-muted">Sedang mengambil properti unggulan...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5 text-center">
+        <div class="card p-4 border-warning bg-light mx-auto shadow-sm" style="max-width: 500px; border-radius: 12px;">
+            <h5 class="fw-bold text-dark mb-2">⚡ Pengisi Data Properti Dummy</h5>
+            <p class="text-muted small mb-3">Klik tombol di bawah setelah kamu membuat akun & login untuk mengisi properti tiruan ke database secara instan.</p>
+            <button onclick="if(window.TERAVIA_SEEDER){ window.TERAVIA_SEEDER.run(); } else { alert('Silakan login terlebih dahulu lalu coba lagi.'); }" class="btn btn-warning w-100 fw-bold">
+                Jalankan Pengisi Data Dummy
+            </button>
+        </div>
+    </section>
+
+    <section class="cta-section py-5 text-center" style="background-color: #1a365d; color: white;">
+        <div class="container py-3">
+            <h2 class="fw-bold mb-3">Ingin Memasarkan Properti Anda Sendiri?</h2>
+            <p class="mb-4" style="max-width: 600px; margin: 0 auto; opacity: 0.9;">Daftarkan diri Anda sebagai pemilik atau agen, dan iklankan properti Anda secara gratis!</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="register.html" class="btn btn-primary btn-lg px-4">Mulai Pasang Iklan</a>
+                <a href="pages/home.html" class="btn btn-outline-light btn-lg px-4">Jelajahi Dulu</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/supabase.js"></script>
+    <script src="assets/js/seed.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
