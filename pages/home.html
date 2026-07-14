@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Properti - TERAVIA</title>
+  
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  
+  <link rel="stylesheet" href="../assets/css/pages/property.css">
+</head>
+<body>
+
+  <div id="navbar-component"></div>
+
+  <main class="container py-5">
+    <div class="page-header mb-4">
+      <h1>Cari Properti Impian Anda</h1>
+      <p>Temukan hunian, lahan, dan tempat komersial terbaik di seluruh Indonesia</p>
+    </div>
+
+    <section class="filter-section mb-5 card p-4">
+      <form id="property-search-form" class="row g-3">
+        <div class="col-md-4">
+          <label for="search-keyword" class="form-label">Kata Kunci</label>
+          <input type="text" id="search-keyword" class="form-control" placeholder="Cari lokasi, nama perumahan...">
+        </div>
+        <div class="col-md-3">
+          <label for="filter-category" class="form-label">Kategori</label>
+          <select id="filter-category" class="form-select">
+            <option value="">Semua Kategori</option>
+            <option value="Hunian">Hunian</option>
+            <option value="Komersial">Komersial</option>
+            <option value="Tanah & Lahan">Tanah & Lahan</option>
+            <option value="Institusi & Fasilitas">Institusi & Fasilitas</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="filter-transaction" class="form-label">Tipe Transaksi</label>
+          <select id="filter-transaction" class="form-select">
+            <option value="">Semua Tipe</option>
+            <option value="Jual">Dijual</option>
+            <option value="Sewa">Disewakan</option>
+          </select>
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+          <button type="submit" class="btn btn-primary w-100">Cari</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="property-list-section">
+      <div id="property-grid" class="row g-4">
+        <div class="text-center py-5">
+          <p>Memuat daftar properti terbaik untuk Anda...</p>
+        </div>
+      </div>
+
+      <div id="pagination-container" class="d-flex justify-content-center mt-5"></div>
+    </section>
+  </main>
+
+  <div id="footer-component"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase.js"></script>
+  
+  <script src="../assets/js/components/navbar.js"></script>
+  <script src="../assets/js/components/footer.js"></script>
+  <script src="../assets/js/components/toast.js"></script>
+
+  <script src="../assets/js/services/property-service.js"></script>
+  <script src="../assets/js/property/property-list.js"></script>
+  <script src="../assets/js/property/property-search.js"></script>
+</body>
+</html>
