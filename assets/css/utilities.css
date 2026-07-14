@@ -1,0 +1,161 @@
+/* ==========================================================
+   TERAVIA
+   utilities.css
+   Utility Classes
+   Version : 1.0
+========================================================== */
+
+/* ===== Container ===== */
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+}
+
+/* ===== Display ===== */
+
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+.d-none { display: none; }
+
+/* ===== Flex ===== */
+
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+
+.flex-wrap { flex-wrap: wrap; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+.align-stretch { align-items: stretch; }
+
+.gap-8 { gap: var(--space-8); }
+.gap-16 { gap: var(--space-16); }
+.gap-24 { gap: var(--space-24); }
+.gap-32 { gap: var(--space-32); }
+
+/* ===== Grid ===== */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-24);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-24);
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-24);
+}
+
+/* ===== Width ===== */
+
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+
+/* ===== Margin ===== */
+
+.mt-16 { margin-top: var(--space-16); }
+.mt-24 { margin-top: var(--space-24); }
+.mt-32 { margin-top: var(--space-32); }
+.mt-48 { margin-top: var(--space-48); }
+
+.mb-16 { margin-bottom: var(--space-16); }
+.mb-24 { margin-bottom: var(--space-24); }
+.mb-32 { margin-bottom: var(--space-32); }
+.mb-48 { margin-bottom: var(--space-48); }
+
+/* ===== Padding ===== */
+
+.pt-32 { padding-top: var(--space-32); }
+.pt-48 { padding-top: var(--space-48); }
+.pt-64 { padding-top: var(--space-64); }
+
+.pb-32 { padding-bottom: var(--space-32); }
+.pb-48 { padding-bottom: var(--space-48); }
+.pb-64 { padding-bottom: var(--space-64); }
+
+/* ===== Section ===== */
+
+.section {
+    padding: var(--space-80) 0;
+}
+
+/* ===== Text ===== */
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-white { color: var(--color-white); }
+
+.fw-400 { font-weight: var(--font-regular); }
+.fw-500 { font-weight: var(--font-medium); }
+.fw-600 { font-weight: var(--font-semibold); }
+.fw-700 { font-weight: var(--font-bold); }
+
+/* ===== Border Radius ===== */
+
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-pill { border-radius: var(--radius-pill); }
+
+/* ===== Shadow ===== */
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+/* ===== Background ===== */
+
+.bg-white { background: var(--color-white); }
+.bg-light { background: var(--color-bg-secondary); }
+.bg-primary { background: var(--color-primary); }
+
+/* ===== Overflow ===== */
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+/* ===== Position ===== */
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+/* ===== Visibility ===== */
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
