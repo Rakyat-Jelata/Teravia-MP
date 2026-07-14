@@ -1,0 +1,228 @@
+/* ==========================================================
+   TERAVIA
+   style.css
+   Home Page Styling
+   Version : 1.0
+========================================================== */
+
+/* ===== Hero ===== */
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8);
+    padding: 8px 18px;
+    margin-bottom: var(--space-24);
+    color: var(--color-primary);
+    background: rgba(15,118,110,.08);
+    border-radius: var(--radius-pill);
+    font-weight: var(--font-semibold);
+}
+
+.hero-title {
+    max-width: 720px;
+}
+
+.hero-description {
+    max-width: 620px;
+    font-size: var(--fs-18);
+}
+
+.hero-search {
+    margin-top: var(--space-48);
+}
+
+/* ===== Statistics ===== */
+
+.statistics {
+    background: var(--color-bg-secondary);
+}
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: var(--space-24);
+}
+
+.stat-card {
+    padding: var(--space-32);
+    text-align: center;
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-card h2 {
+    margin-bottom: var(--space-8);
+    color: var(--color-primary);
+}
+
+.stat-card p {
+    margin: 0;
+}
+
+/* ===== Category ===== */
+
+.category-card {
+    padding: var(--space-32);
+    text-align: center;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-normal);
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.category-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto var(--space-20);
+    font-size: 2rem;
+    background: rgba(15,118,110,.08);
+    border-radius: 50%;
+}
+
+/* ===== Property ===== */
+
+.property-card {
+    height: 100%;
+}
+
+.property-content h3 {
+    margin-bottom: var(--space-12);
+}
+
+.property-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-16);
+    margin: var(--space-16) 0;
+    color: var(--color-text-secondary);
+    font-size: var(--fs-14);
+}
+
+/* ===== Feature ===== */
+
+.feature-card {
+    padding: var(--space-32);
+    text-align: center;
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto var(--space-20);
+    font-size: 2rem;
+    color: var(--color-primary);
+    background: rgba(15,118,110,.08);
+    border-radius: 50%;
+}
+
+/* ===== Testimonial ===== */
+
+.testimonial-card {
+    padding: var(--space-32);
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+    margin-top: var(--space-24);
+}
+
+/* ===== Blog ===== */
+
+.blog-card {
+    overflow: hidden;
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.blog-card img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: var(--space-24);
+}
+
+/* ===== FAQ ===== */
+
+.faq-item {
+    margin-bottom: var(--space-16);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.faq-item summary {
+    padding: var(--space-20);
+    cursor: pointer;
+    font-weight: var(--font-semibold);
+}
+
+.faq-item p {
+    padding: 0 var(--space-20) var(--space-20);
+    margin: 0;
+}
+
+/* ===== Newsletter ===== */
+
+.newsletter-box {
+    max-width: 720px;
+    margin: auto;
+    padding: var(--space-48);
+    text-align: center;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-xl);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: var(--space-16);
+    margin-top: var(--space-24);
+}
+
+/* ===== Footer ===== */
+
+.footer-social {
+    display: flex;
+    gap: var(--space-16);
+}
+
+.footer-social a:hover {
+    color: var(--color-primary);
+}
+
+/* ===== Animation ===== */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .6s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
