@@ -20,6 +20,17 @@ const TERAVIA_CONFIG = {
     // Environment
     ENVIRONMENT: "development",
 
+   // Supabase Configuration
+SUPABASE: {
+
+    URL:
+        "https://junramfhdgabmytoaazh.supabase.co",
+
+    ANON_KEY:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1bnJhbWZoZGdhYm15dG9hYXpoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4NDY2NDgsImV4cCI6MjA5OTQyMjY0OH0.DmK6iYsTGCRyfeSRDVs94CB_qN_Mymkywm8ib5IcU7w"
+
+},
+
 
     // Website URL
     BASE_URL: window.location.origin,
