@@ -1,0 +1,199 @@
+/* =========================================================
+   TERAVIA
+   reset.css
+   CSS Reset & Base Normalization
+   Version : 1.0
+========================================================= */
+
+/* Box Model */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML */
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Body */
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Media */
+
+img,
+picture,
+svg,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Form */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Button */
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* Link */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* List */
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Heading */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: inherit;
+    font-weight: inherit;
+}
+
+/* Paragraph */
+
+p {
+    overflow-wrap: break-word;
+}
+
+/* Text Selection */
+
+::selection {
+    background: rgba(15, 118, 110, .15);
+}
+
+/* Textarea */
+
+textarea {
+    resize: vertical;
+}
+
+/* Input Number */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* Search */
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+    appearance: none;
+}
+
+/* Disabled */
+
+:disabled {
+    cursor: not-allowed;
+}
+
+/* Hidden */
+
+[hidden] {
+    display: none !important;
+}
+
+/* Dialog */
+
+dialog {
+    border: none;
+    padding: 0;
+    background: transparent;
+}
+
+/* HR */
+
+hr {
+    border: 0;
+}
+
+/* Address */
+
+address {
+    font-style: normal;
+}
+
+/* Quote */
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+    content: "";
+}
+
+/* Focus */
+
+:focus-visible {
+    outline: 2px solid #0F766E;
+    outline-offset: 2px;
+}
+
+/* Root */
+
+#root,
+#__next {
+    isolation: isolate;
+}
