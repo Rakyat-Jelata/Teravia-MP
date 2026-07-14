@@ -1,57 +1,76 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { User, onAuthStateChanged } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
-import { auth, db } from '../config/firebase';
+import { User } from '@supabase/supabase-js';
+import { supabase } from '../config/supabase';
 
-// Definisi tipe data user profile di TERAVIA
+// Definisi tipe data profil pengguna dari tabel 'profiles' di Supabase
 interface UserProfile {
-  uid: string;
+  id: string;
   name: string;
   email: string;
   role: 'seeker' | 'agent' | 'admin';
-  membership: {
-    type: 'free' | 'premium';
-    validUntil: any;
-  };
+  membership_type: 'free' | 'premium';
+  membership_valid_until: string | null;
 }
 
 interface AuthContextType {
-  currentUser: User | null;
-  userProfile: UserProfile | null;
+  user: User | null;
+  profile: UserProfile | null;
   loading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Mendengarkan perubahan status login dari Firebase Auth
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setCurrentUser(user);
+    // 1. Ambil data sesi aktif saat aplikasi pertama kali dimuat
+    const initializeAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
       
-      if (user) {
-        // Jika user login, ambil data detail role & membership dari Firestore
-        const userDocRef = doc(db, 'users', user.uid);
-        const userDocSnap = await getDoc(userDocRef);
-        
-        if (userDocSnap.exists()) {
-          setUserProfile(userDocSnap.data() as UserProfile);
-        }
+      if (session?.user) {
+        await fetchUserProfile(session.user.id);
+      }
+      setLoading(false);
+    };
+
+    initializeAuth();
+
+    // 2. Dengarkan perubahan status auth (Sign In, Sign Out, Token Refresh)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      setUser(session?.user ?? null);
+      
+      if (session?.user) {
+        await fetchUserProfile(session.user.id);
       } else {
-        setUserProfile(null);
+        setProfile(null);
       }
       setLoading(false);
     });
 
-    return unsubscribe;
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
+  // Fungsi pembantu untuk mengambil detail profil dari tabel database
+  const fetchUserProfile = async (userId: string) => {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', userId)
+      .single();
+
+    if (!error && data) {
+      setProfile(data as UserProfile);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ currentUser, userProfile, loading }}>
+    <AuthContext.Provider value={{ user, profile, loading }}>
       {!loading && children}
     </AuthContext.Provider>
   );
@@ -64,4 +83,3 @@ export const useAuth = () => {
   }
   return context;
 };
-
