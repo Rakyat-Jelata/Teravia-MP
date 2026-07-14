@@ -1,82 +1,93 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Properti - TERAVIA</title>
-  
-  <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/variables.css">
-  <link rel="stylesheet" href="../assets/css/base.css">
-  <link rel="stylesheet" href="../assets/css/components.css">
-  <link rel="stylesheet" href="../assets/css/layout.css">
-  <link rel="stylesheet" href="../assets/css/responsive.css">
-  
-  <link rel="stylesheet" href="../assets/css/pages/property.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Beranda - TERAVIA</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
-<body>
+<body data-page="home">
 
-  <div id="navbar-component"></div>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="home.html" class="logo">
+                    <img src="assets/img/logo.png" alt="TERAVIA Logo">
+                </a>
+                <div class="nav-menu">
+                    <a href="home.html" class="active">Dashboard</a>
+                    <a href="#jelajah">Jelajah Properti</a>
+                    <a href="#favorit">Favorit Saya</a>
+                </div>
+                <div class="nav-actions">
+                    <div class="avatar">
+                        <img src="assets/img/default-avatar.png" alt="User Profile">
+                    </div>
+                    <button class="btn btn-outline" data-action="logout">Keluar</button>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-  <main class="container py-5">
-    <div class="page-header mb-4">
-      <h1>Cari Properti Impian Anda</h1>
-      <p>Temukan hunian, lahan, dan tempat komersial terbaik di seluruh Indonesia</p>
-    </div>
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Rekomendasi Properti Terbaru</h2>
+                <p class="section-description">Pilihan properti terverifikasi yang sesuai dengan kriteria pencarian Anda.</p>
+            </div>
 
-    <section class="filter-section mb-5 card p-4">
-      <form id="property-search-form" class="row g-3">
-        <div class="col-md-4">
-          <label for="search-keyword" class="form-label">Kata Kunci</label>
-          <input type="text" id="search-keyword" class="form-control" placeholder="Cari lokasi, nama perumahan...">
+            <div class="property-grid">
+                <div class="card property-card">
+                    <div class="property-image">
+                        <img src="assets/img/property-1.jpg" alt="Rumah Minimalis">
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">Rp 850.000.000</div>
+                        <h4 class="margin-bottom-8">Cluster Jasmine Residence</h4>
+                        <div class="property-location">BSD City, Tangerang Selatan</div>
+                    </div>
+                </div>
+
+                <div class="card property-card">
+                    <div class="property-image">
+                        <img src="assets/img/property-2.jpg" alt="Modern Apartment">
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">Rp 1.200.000.000</div>
+                        <h4 class="margin-bottom-8">Sudirman View Apartment</h4>
+                        <div class="property-location">Jakarta Pusat, DKI Jakarta</div>
+                    </div>
+                </div>
+
+                <div class="card property-card">
+                    <div class="property-image">
+                        <img src="assets/img/property-3.jpg" alt="Ruko Komersial">
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">Rp 2.400.000.000</div>
+                        <h4 class="margin-bottom-8">Ruko Business Center Riviera</h4>
+                        <div class="property-location">Surabaya, Jawa Timur</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3">
-          <label for="filter-category" class="form-label">Kategori</label>
-          <select id="filter-category" class="form-select">
-            <option value="">Semua Kategori</option>
-            <option value="Hunian">Hunian</option>
-            <option value="Komersial">Komersial</option>
-            <option value="Tanah & Lahan">Tanah & Lahan</option>
-            <option value="Institusi & Fasilitas">Institusi & Fasilitas</option>
-          </select>
-        </div>
-        <div class="col-md-3">
-          <label for="filter-transaction" class="form-label">Tipe Transaksi</label>
-          <select id="filter-transaction" class="form-select">
-            <option value="">Semua Tipe</option>
-            <option value="Jual">Dijual</option>
-            <option value="Sewa">Disewakan</option>
-          </select>
-        </div>
-        <div class="col-md-2 d-flex align-items-end">
-          <button type="submit" class="btn btn-primary w-100">Cari</button>
-        </div>
-      </form>
     </section>
 
-    <section class="property-list-section">
-      <div id="property-grid" class="row g-4">
-        <div class="text-center py-5">
-          <p>Memuat daftar properti terbaik untuk Anda...</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="divider"></div>
+            <p class="text-center">&copy; 2026 TERAVIA. Hak Cipta Dilindungi.</p>
         </div>
-      </div>
+    </footer>
 
-      <div id="pagination-container" class="d-flex justify-content-center mt-5"></div>
-    </section>
-  </main>
-
-  <div id="footer-component"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="../assets/js/config.js"></script>
-  <script src="../assets/js/supabase.js"></script>
-  
-  <script src="../assets/js/components/navbar.js"></script>
-  <script src="../assets/js/components/footer.js"></script>
-  <script src="../assets/js/components/toast.js"></script>
-
-  <script src="../assets/js/services/property-service.js"></script>
-  <script src="../assets/js/property/property-list.js"></script>
-  <script src="../assets/js/property/property-search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/supabase.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
