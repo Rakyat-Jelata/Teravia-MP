@@ -11,7 +11,7 @@ export const Navbar: React.FC = () => {
         
         {/* Kiri: Logo Brand */}
         <div className="flex items-center">
-          <img src="/assets/img/logo.png" alt="TERAVIA Logo" className="h-8 w-auto object-contain" />
+          <img src="/img/logo.png" alt="TERAVIA Logo" className="h-8 w-auto object-contain" />
 
         {/* Tengah: Menu Navigasi Utama (Desktop) */}
         <div className="hidden md:flex items-center space-x-8">
