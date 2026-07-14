@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import logoImg from '/assets/img/logo.png'; // Memanggil aset logo Anda
 
 export const Navbar: React.FC = () => {
   const { user, profile } = useAuth();
@@ -12,8 +11,7 @@ export const Navbar: React.FC = () => {
         
         {/* Kiri: Logo Brand */}
         <div className="flex items-center">
-          <img src={logoImg} alt="TERAVIA Logo" className="h-8 w-auto object-contain" />
-        </div>
+          <img src="/assets/img/logo.png" alt="TERAVIA Logo" className="h-8 w-auto object-contain" />
 
         {/* Tengah: Menu Navigasi Utama (Desktop) */}
         <div className="hidden md:flex items-center space-x-8">
