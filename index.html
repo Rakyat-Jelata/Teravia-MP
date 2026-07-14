@@ -121,64 +121,55 @@
   <!-- 1. Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   
-  <!-- 2. Konfigurasi & Inisialisasi DB -->
+  <!-- 2. Konfigurasi Utama -->
   <script src="assets/js/config.js"></script>
   <script src="assets/js/supabase.js"></script>
   
-  <!-- 3. Komponen UI Global -->
-  <script src="assets/js/components/navbar.js"></script>
-  <script src="assets/js/components/footer.js"></script>
-  <script src="assets/js/components/toast.js"></script>
-
-  <!-- 4. Services & Logika Pemuatan Properti Rekomendasi -->
-  <script src="assets/js/services/property-service.js"></script>
-  
-  <!-- Logika Khusus untuk Landing Page -->
+  <!-- 3. Memuat Navbar Langsung Tanpa File navbar.js Terpisah -->
   <script>
-    // Inisialisasi pemuatan properti rekomendasi saat dokumen siap
     document.addEventListener("DOMContentLoaded", async () => {
-      const grid = document.getElementById("featured-property-grid");
-      
-      try {
-        // Menggunakan PropertyService dari Global Namespace (jika sudah dikonversi)
-        if (window.TERAVIA_APP && window.TERAVIA_APP.PropertyService) {
-          const { data: properties } = await window.TERAVIA_APP.PropertyService.getProperties({ limit: 3 });
-          
-          if (!properties || properties.length === 0) {
-            grid.innerHTML = `<div class="col-12 text-center py-4"><p class="text-muted">Belum ada rekomendasi properti saat ini.</p></div>`;
-            return;
-          }
-
-          // Render properti
-          grid.innerHTML = properties.map(item => `
-            <div class="col-md-4">
-              <div class="card property-card h-100 shadow-sm">
-                <img src="${item.property_images?.[0]?.image_url || 'assets/img/property-placeholder.jpg.jpeg'}" class="card-img-top" alt="${item.title}" style="height: 200px; object-fit: cover;">
-                <div class="card-body">
-                  <span class="badge bg-primary mb-2">${item.transaction_type}</span>
-                  <h5 class="card-title">${item.title}</h5>
-                  <p class="text-success fw-bold">Rp ${Number(item.price).toLocaleString('id-ID')}</p>
-                  <p class="card-text text-muted small"><i class="bi bi-geo-alt"></i> ${item.city}, ${item.province}</p>
-                </div>
-                <div class="card-footer bg-white border-top-0 pb-3">
-                  <a href="pages/property-detail.html?id=${item.id}" class="btn btn-outline-primary btn-sm w-100">Lihat Detail</a>
-                </div>
+      const navbarContainer = document.getElementById("navbar-component");
+      if (navbarContainer) {
+        navbarContainer.innerHTML = `
+          <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+            <div class="container">
+              <a class="navbar-brand fw-bold text-primary fs-3" href="index.html">TERAVIA</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                  <li class="nav-item"><a class="nav-link text-dark" href="index.html">Beranda</a></li>
+                  <li class="nav-item"><a class="nav-link text-dark" href="pages/home.html">Cari Properti</a></li>
+                </ul>
+                <ul class="navbar-nav align-items-center gap-2">
+                  <li class="nav-item"><a class="nav-link text-dark me-2" href="login.html">Masuk</a></li>
+                  <li class="nav-item"><a class="btn btn-primary text-white px-3" href="register.html">Daftar</a></li>
+                </ul>
               </div>
             </div>
-          `).join('');
-        } else {
-          // Fallback jika PropertyService belum siap dimuat
-          grid.innerHTML = `<div class="col-12 text-center py-4"><p class="text-muted">Sistem properti sedang dikonfigurasi.</p></div>`;
-        }
-      } catch (err) {
-        console.error("Gagal memuat properti rekomendasi:", err);
-        grid.innerHTML = `<div class="col-12 text-center py-4 text-danger"><p>Gagal memuat rekomendasi properti.</p></div>`;
+          </nav>
+        `;
       }
     });
   </script>
-  <!-- Bootstrap 5 JS Bundle (Taruh sebelum tag </body> penutup) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Letakkan seed.js setelah inisialisasi Supabase/Eruda -->
+
+  <!-- 4. Tombol Darurat untuk Memanggil Seeder Tanpa Eruda -->
+  <div class="container my-5 text-center">
+    <div class="card p-4 border-warning bg-light" style="max-width: 500px; margin: 0 auto;">
+      <h5 class="fw-bold text-warning mb-2">Panel Kontrol Seeder</h5>
+      <p class="text-muted small">Jika kamu sudah mendaftar dan masuk lewat login.html, klik tombol di bawah untuk memasukkan data properti dummy secara instan.</p>
+      <button onclick="window.TERAVIA_SEEDER.run()" class="btn btn-warning w-100">
+        ⚡ Jalankan Pengisi Data Dummy
+      </button>
+    </div>
+  </div>
+
+  <!-- 5. Script Seeder Langsung di Sini agar Pasti Berjalan -->
   <script src="assets/js/seed.js"></script>
+
+  <!-- 6. Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </body>
 </html>
