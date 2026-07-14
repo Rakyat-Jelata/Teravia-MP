@@ -1,0 +1,363 @@
+/* =====================================================
+   TERAVIA - Dashboard Page Styles
+   File: assets/css/pages/dashboard.css
+===================================================== */
+
+
+/* ==============================
+   DASHBOARD WRAPPER
+============================== */
+
+.dashboard-page {
+    min-height: calc(100vh - var(--header-height));
+    background: var(--bg-light);
+    padding: 40px 0;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    max-width: var(--container-width);
+    margin: auto;
+    padding: 0 20px;
+}
+
+
+/* ==============================
+   SIDEBAR
+============================== */
+
+.dashboard-sidebar {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 25px;
+    box-shadow: var(--shadow-sm);
+    height: fit-content;
+}
+
+.dashboard-user {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--primary);
+}
+
+.dashboard-user h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.dashboard-user span {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+
+/* ==============================
+   DASHBOARD MENU
+============================== */
+
+.dashboard-menu {
+    margin-top: 25px;
+}
+
+.dashboard-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: var(--radius-md);
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.dashboard-menu a:hover,
+.dashboard-menu a.active {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.dashboard-menu i {
+    width: 20px;
+}
+
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+}
+
+.dashboard-header p {
+    color: var(--text-muted);
+}
+
+
+/* ==============================
+   STATISTIC CARDS
+============================== */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.stat-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 24px;
+}
+
+.stat-info h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.stat-info span {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+
+/* ==============================
+   DASHBOARD SECTION
+============================== */
+
+.dashboard-section {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 25px;
+    box-shadow: var(--shadow-sm);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 20px;
+}
+
+
+/* ==============================
+   MY PROPERTY LIST
+============================== */
+
+.dashboard-properties {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+
+.dashboard-property-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--white);
+}
+
+.dashboard-property-image {
+    height: 180px;
+    overflow: hidden;
+}
+
+.dashboard-property-image img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+
+.dashboard-property-body {
+    padding:18px;
+}
+
+
+.dashboard-property-body h3 {
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+
+.dashboard-property-price {
+    color:var(--primary);
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+
+.property-status {
+    display:inline-flex;
+    padding:6px 12px;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:600;
+}
+
+
+.property-status.active {
+    background:#dcfce7;
+    color:#15803d;
+}
+
+
+.property-status.pending {
+    background:#fef9c3;
+    color:#854d0e;
+}
+
+
+.property-status.reject {
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+
+/* ==============================
+   ACTIVITY LIST
+============================== */
+
+.activity-list {
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+
+.activity-item {
+    display:flex;
+    gap:15px;
+    padding-bottom:15px;
+    border-bottom:1px solid var(--border-color);
+}
+
+
+.activity-icon {
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:var(--primary-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--primary);
+}
+
+
+.activity-text {
+    flex:1;
+}
+
+
+.activity-text p {
+    margin-bottom:5px;
+}
+
+
+.activity-time {
+    font-size:13px;
+    color:var(--text-muted);
+}
+
+
+/* ==============================
+   MEMBERSHIP CARD
+============================== */
+
+.membership-card {
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color:white;
+    padding:30px;
+    border-radius:var(--radius-lg);
+}
+
+
+.membership-card h3 {
+    margin-bottom:10px;
+}
+
+
+.membership-card p {
+    opacity:.9;
+}
+
+
+.membership-card .btn {
+    margin-top:20px;
+}
+
+
+/* ==============================
+   EMPTY STATE
+============================== */
+
+.dashboard-empty {
+    text-align:center;
+    padding:40px 20px;
+}
+
+
+.dashboard-empty img {
+    width:120px;
+    margin-bottom:20px;
+}
+
+
+.dashboard-empty h3 {
+    margin-bottom:10px;
+}
+
+
+.dashboard-empty p {
+    color:var(--text-muted);
+  }
