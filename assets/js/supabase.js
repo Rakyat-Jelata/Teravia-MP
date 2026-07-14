@@ -4,37 +4,13 @@
 ===================================================== */
 
 
-/*
-    IMPORTANT:
-    Ganti nilai berikut dengan credential Supabase milik TERAVIA
-*/
+const config = window.TERAVIA_CONFIG;
 
-
-const SUPABASE_CONFIG = {
-
-    URL: "YOUR_SUPABASE_URL",
-
-    ANON_KEY:
-    "YOUR_SUPABASE_ANON_KEY"
-
-};
-
-
-
-/**
- * Initialize Supabase Client
- */
 
 const supabaseClient = supabase.createClient(
-    SUPABASE_CONFIG.URL,
-    SUPABASE_CONFIG.ANON_KEY
+    config.SUPABASE.URL,
+    config.SUPABASE.ANON_KEY
 );
 
 
-
-/**
- * Export Global
- */
-
 window.supabaseClient = supabaseClient;
-window.SUPABASE_CONFIG = SUPABASE_CONFIG;
