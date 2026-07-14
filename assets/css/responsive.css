@@ -1,0 +1,390 @@
+/* =====================================================
+   TERAVIA - Global Responsive Styles
+   File: assets/css/responsive.css
+===================================================== */
+
+
+/* =====================================================
+   LARGE DESKTOP
+===================================================== */
+
+@media (max-width:1200px){
+
+    .container {
+        padding-left:25px;
+        padding-right:25px;
+    }
+
+
+    /* Property */
+
+    .property-grid {
+        grid-template-columns:repeat(3,1fr);
+    }
+
+
+    /* Dashboard */
+
+    .dashboard-container {
+        grid-template-columns:240px 1fr;
+    }
+
+
+    .dashboard-stats {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+
+    /* Admin */
+
+    .admin-layout {
+        grid-template-columns:230px 1fr;
+    }
+
+
+    .admin-stats {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width:992px){
+
+
+    /* Global */
+
+    h1 {
+        font-size:32px;
+    }
+
+
+    h2 {
+        font-size:24px;
+    }
+
+
+    /* Navbar */
+
+    .navbar-menu {
+        display:none;
+    }
+
+
+    .navbar-toggle {
+        display:flex;
+    }
+
+
+    /* Grid */
+
+    .property-grid,
+    .blog-grid {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+
+    /* Home Hero */
+
+    .hero-content {
+        max-width:100%;
+        text-align:center;
+    }
+
+
+    /* Dashboard */
+
+    .dashboard-container {
+        grid-template-columns:1fr;
+    }
+
+
+    .dashboard-sidebar {
+        position:relative;
+    }
+
+
+    .dashboard-properties {
+        grid-template-columns:1fr;
+    }
+
+
+    /* Membership */
+
+    .membership-plans {
+        grid-template-columns:1fr;
+    }
+
+
+    .benefit-grid {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+
+    /* Profile */
+
+    .profile-layout {
+        grid-template-columns:1fr;
+    }
+
+
+    /* Admin */
+
+    .admin-layout {
+        grid-template-columns:1fr;
+    }
+
+
+    .admin-sidebar {
+        position:relative;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:768px){
+
+
+    /* Container */
+
+    .container {
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+
+    /* Typography */
+
+    h1 {
+        font-size:28px;
+    }
+
+
+    h2 {
+        font-size:22px;
+    }
+
+
+    /* Buttons */
+
+    .btn {
+        width:100%;
+        justify-content:center;
+    }
+
+
+
+    /* =====================
+       NAVBAR
+    ===================== */
+
+    .navbar {
+        padding:15px;
+    }
+
+
+    .navbar-logo img {
+        width:120px;
+    }
+
+
+
+    /* =====================
+       HOME
+    ===================== */
+
+
+    .hero {
+        padding:60px 0;
+    }
+
+
+    .hero-title {
+        font-size:30px;
+    }
+
+
+    .search-box {
+        flex-direction:column;
+    }
+
+
+
+    /* =====================
+       PROPERTY
+    ===================== */
+
+
+    .property-grid {
+        grid-template-columns:1fr;
+    }
+
+
+    .property-filter {
+        flex-direction:column;
+    }
+
+
+
+    /* =====================
+       DETAIL PROPERTY
+    ===================== */
+
+
+    .property-detail-layout {
+        grid-template-columns:1fr;
+    }
+
+
+    .property-gallery {
+        height:300px;
+    }
+
+
+
+    /* =====================
+       BLOG
+    ===================== */
+
+
+    .blog-grid {
+        grid-template-columns:1fr;
+    }
+
+
+
+    /* =====================
+       DASHBOARD
+    ===================== */
+
+
+    .dashboard-header {
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+
+    .dashboard-stats {
+        grid-template-columns:1fr;
+    }
+
+
+
+    /* =====================
+       MEMBERSHIP
+    ===================== */
+
+
+    .membership-card {
+        padding:25px;
+    }
+
+
+    .benefit-grid {
+        grid-template-columns:1fr;
+    }
+
+
+
+    /* =====================
+       AUTH
+    ===================== */
+
+
+    .auth-card {
+        padding:25px 20px;
+    }
+
+
+    .auth-options {
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+
+    .role-selector {
+        grid-template-columns:1fr;
+    }
+
+
+
+    /* =====================
+       ADMIN
+    ===================== */
+
+
+    .admin-content {
+        padding:15px;
+    }
+
+
+    .admin-header {
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+
+    .admin-filter {
+        flex-direction:column;
+    }
+
+
+    .approval-actions {
+        flex-direction:column;
+        width:100%;
+    }
+
+
+    .admin-btn {
+        width:100%;
+    }
+
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width:480px){
+
+
+    .hero-title {
+        font-size:24px;
+    }
+
+
+    .section-title {
+        font-size:22px;
+    }
+
+
+    .property-card-image {
+        height:180px;
+    }
+
+
+    .dashboard-section,
+    .admin-card,
+    .membership-card {
+        padding:20px;
+    }
+
+
+    .otp-input {
+        width:42px;
+        height:48px;
+    }
+
+}
