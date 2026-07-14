@@ -1,0 +1,194 @@
+/* ==========================================================
+   TERAVIA
+   Home Page
+   home.css
+   Version : 1.0
+========================================================== */
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right,
+        rgba(15,118,110,.08),
+        transparent 45%);
+    pointer-events: none;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: var(--space-64);
+    align-items: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-search {
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================================
+   HERO SEARCH
+========================================================== */
+
+.search-box {
+    display: grid;
+    gap: var(--space-20);
+    padding: var(--space-32);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.search-row {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: var(--space-20);
+}
+
+/* ==========================================================
+   STATISTICS
+========================================================== */
+
+.statistics {
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+}
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: var(--space-24);
+}
+
+/* ==========================================================
+   CATEGORY
+========================================================== */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: var(--space-24);
+}
+
+/* ==========================================================
+   FEATURED PROPERTY
+========================================================== */
+
+.featured-property {
+    background: var(--color-bg-secondary);
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: var(--space-24);
+}
+
+/* ==========================================================
+   WHY TERAVIA
+========================================================== */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: var(--space-24);
+}
+
+/* ==========================================================
+   TESTIMONIAL
+========================================================== */
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: var(--space-24);
+}
+
+/* ==========================================================
+   BLOG
+========================================================== */
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: var(--space-24);
+}
+
+/* ==========================================================
+   CTA
+========================================================== */
+
+.cta-box {
+    max-width: 960px;
+    margin: auto;
+}
+
+/* ==========================================================
+   FAQ
+========================================================== */
+
+.faq {
+    background: var(--color-bg-secondary);
+}
+
+.faq-list {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* ==========================================================
+   NEWSLETTER
+========================================================== */
+
+.newsletter {
+    background: linear-gradient(
+        180deg,
+        #ffffff,
+        #f8fafc
+    );
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.footer {
+    margin-top: var(--space-80);
+}
+
+.footer-grid {
+    padding: var(--space-64) 0;
+}
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .6s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
