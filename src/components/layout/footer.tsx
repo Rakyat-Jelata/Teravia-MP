@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImg from '../../assets/img/logo.png'; // Menggunakan logo yang sama dengan filter inversi CSS
+import logoImg from '/assets/img/logo.png'; // Menggunakan logo yang sama dengan filter inversi CSS
 
 export const Footer: React.FC = () => {
   return (
