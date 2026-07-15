@@ -181,7 +181,7 @@ const TERAVIA_TOAST = {
 
 
         toast.classList.add(
-            "hide"
+            "active"
         );
 
 
@@ -294,20 +294,10 @@ const TERAVIA_TOAST = {
  * Export Global
  */
 
+export {
+    TERAVIA_TOAST
+};
+
+
 window.TERAVIA_TOAST =
     TERAVIA_TOAST;
-
-
-
-/**
- * Auto Init
- */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    ()=>{
-
-        TERAVIA_TOAST.init();
-
-    }
-);
