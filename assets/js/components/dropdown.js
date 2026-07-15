@@ -182,7 +182,7 @@ const TERAVIA_DROPDOWN = {
 
 
                     options.classList.toggle(
-                        "show"
+                        "active"
                     );
 
 
@@ -214,7 +214,7 @@ const TERAVIA_DROPDOWN = {
 
 
                         options.classList.remove(
-                            "show"
+                            "active"
                         );
 
 
