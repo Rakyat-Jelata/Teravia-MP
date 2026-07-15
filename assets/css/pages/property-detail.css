@@ -240,3 +240,37 @@
     gap: var(--space-12);
     margin-bottom: var(--space-20);
 }
+==========≠==============≠
+body{
+    font-family:'Inter',sans-serif;
+    background:#f8f9fa;
+}
+
+.property-carousel img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.agent-card{
+    position:sticky;
+    top:20px;
+}
+
+.property-detail-card{
+    background:#fff;
+    border-radius:12px;
+    padding:24px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.property-price{
+    color:var(--color-success);
+    font-weight:700;
+}
+
+.btn-whatsapp{
+    background:#25D366;
+    color:#fff;
+}
