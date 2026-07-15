@@ -308,7 +308,7 @@ main {
 }
 
 
-.nav-actions{
+.nav-action {
     display:flex;
     align-items:center;
     gap:12px;
