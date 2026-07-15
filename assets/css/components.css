@@ -23,8 +23,8 @@ transform:translateY(-2px);
 }
 
 .btn-primary{
-background:var(--primary-color);
-color:#fff;
+    background:var(--color-primary);
+    color:#fff;
 }
 
 .btn-full{
