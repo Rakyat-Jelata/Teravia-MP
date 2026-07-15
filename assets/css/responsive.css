@@ -70,12 +70,12 @@
 
     /* Navbar */
 
-    .navbar-menu {
+    .nav-menu {
         display:none;
     }
 
 
-    .navbar-toggle {
+    .hamburger {
         display:flex;
     }
 
@@ -191,7 +191,7 @@
     }
 
 
-    .navbar-logo img {
+    .logo {
         width:120px;
     }
 
