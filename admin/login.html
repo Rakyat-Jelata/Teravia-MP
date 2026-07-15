@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - TERAVIA</title>
+
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/utilities.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+
+<body data-page="admin-login">
+
+<header class="header">
+    <div data-navbar></div>
+</header>
+
+<main class="section">
+
+    <div class="container">
+
+        <div class="auth-wrapper">
+
+            <div class="card auth-card">
+
+                <div class="text-center mb-24">
+
+                    <a href="../index.html" class="logo">
+                        <img src="../assets/img/logo.png" alt="TERAVIA">
+                    </a>
+
+                    <h2 class="mt-16">
+                        ADMIN CONSOLE
+                    </h2>
+
+                    <p>
+                        Login khusus Admin & Super Admin TERAVIA
+                    </p>
+
+                </div>
+
+                <form id="adminLoginForm">
+
+                    <div class="form-group">
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            class="form-control"
+                            placeholder="admin@teravia.id"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            class="form-control"
+                            placeholder="Masukkan Password"
+                            required>
+
+                    </div>
+
+                    <div class="d-flex justify-between align-center mb-24">
+
+                        <label class="d-flex align-center gap-8">
+
+                            <input
+                                type="checkbox"
+                                id="remember">
+
+                            Ingat Saya
+
+                        </label>
+
+                        <a href="#">
+                            Lupa Password?
+                        </a>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-full">
+
+                        LOGIN ADMIN
+
+                    </button>
+
+                </form>
+
+                <div class="divider"></div>
+
+                <div class="text-center">
+
+                    <a href="../index.html">
+
+                        ← Kembali ke Website
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<div data-footer></div>
+
+<script type="module" src="../assets/js/app.js"></script>
+
+  <script type="module">
+import { AuthService } from "../assets/js/services/auth-service.js";
+import { Toast } from "../assets/js/components/toast.js";
+
+const form = document.getElementById("adminLoginForm");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        Toast.error("Email dan password wajib diisi.");
+        return;
+    }
+
+    try {
+        const result = await AuthService.login(email, password);
+
+        if (!result.success) {
+            Toast.error(result.message || "Login gagal.");
+            return;
+        }
+
+        const user = result.user;
+
+        const profile = await AuthService.getProfile(user.id);
+
+        if (!profile) {
+            Toast.error("Profil admin tidak ditemukan.");
+            await AuthService.logout();
+            return;
+        }
+
+        if (profile.role !== "admin" && profile.role !== "super_admin") {
+            Toast.error("Akun ini bukan Admin TERAVIA.");
+            await AuthService.logout();
+            return;
+        }
+
+        Toast.success("Login berhasil.");
+
+        setTimeout(() => {
+            window.location.href = "dashboard.html";
+        }, 1000);
+
+    } catch (err) {
+        console.error(err);
+        Toast.error("Terjadi kesalahan saat login.");
+    }
+});
+  </script>
+
+</body>
+</html>
