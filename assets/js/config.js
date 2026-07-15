@@ -167,7 +167,10 @@ SUPABASE: {
 
 
 /**
- * Export Global Config
+/**
+ * Export Config
  */
+
+export default TERAVIA_CONFIG;
 
 window.TERAVIA_CONFIG = TERAVIA_CONFIG;
