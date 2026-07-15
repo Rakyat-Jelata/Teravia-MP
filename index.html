@@ -1,108 +1,488 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TERAVIA - Jual Beli Sewa Properti Indonesia</title>
-    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-    <script>eruda.init();</script>
-    
-    <link rel="stylesheet" href="assets/css/variables.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/layout.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TERAVIA | Jual Beli Sewa Properti Seluruh Indonesia</title>
+
+<meta name="description" content="TERAVIA marketplace properti modern untuk jual, beli dan sewa properti seluruh Indonesia. Listing terverifikasi admin, broker dan owner terhubung langsung.">
+
+<link rel="icon" href="assets/img/logo.png">
+
+<link rel="stylesheet" href="assets/css/reset.css">
+<link rel="stylesheet" href="assets/css/variables.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/utilities.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/pages/home.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
 </head>
-<body data-page="index">
 
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">
-                    <img src="assets/img/logo.png" alt="TERAVIA Logo">
-                </a>
-                <div class="nav-menu">
-                    <a href="index.html" class="active">Beranda</a>
-                    <a href="#properti">Properti</a>
-                    <a href="#tentang">Tentang</a>
-                </div>
-                <div class="nav-actions">
-                    <a href="login.html" class="btn btn-outline">Masuk</a>
-                    <a href="register.html" class="btn btn-primary">Daftar</a>
-                    <button class="menu-toggle" data-action="toggle-menu">
-                        <span></span>
-                    </button>
-                </div>
-            </nav>
+<body data-page="landing">
+
+<header class="header">
+    <nav class="navbar" data-navbar></nav>
+</header>
+
+
+<main>
+
+
+<!-- ============================================
+     HERO
+============================================ -->
+
+<section class="hero">
+<div class="container hero-container">
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+            ✓ 1.240+ Listing Terverifikasi Admin
+        </span>
+
+        <h1 class="hero-title">
+            Jual, Beli &amp; Sewa Properti
+            Lebih Mudah Bersama TERAVIA
+        </h1>
+
+        <p class="hero-description">
+            Marketplace properti modern untuk menemukan rumah,
+            tanah, apartemen, villa dan properti komersial
+            terbaik di seluruh Indonesia.
+        </p>
+
+        <div class="hero-action">
+            <a href="pages/home.html" class="btn btn-primary">
+                Cari Properti
+            </a>
+            <a href="register.html" class="btn btn-outline">
+                Pasang Iklan
+            </a>
         </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="hero-badge">Temukan Hunian Impian Anda</span>
-                <h1 class="hero-title">Platform Properti Terpercaya di Seluruh Indonesia</h1>
-                <p class="hero-description">Cari, temukan, dan miliki aset properti terbaik dengan legalitas aman bersama agen profesional kami.</p>
-                
-                <div class="hero-search">
-                    <div class="search-box">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Cari kota, wilayah, atau nama perumahan...">
-                        </div>
-                        <button class="btn btn-primary">Cari Properti</button>
-                    </div>
+    </div>
+
+
+    <div class="hero-search">
+        <form class="search-box" data-form="hero-search">
+
+            <div class="search-row">
+
+                <div class="form-group">
+                    <label class="form-label" for="search-category">
+                        Kategori
+                    </label>
+                    <select class="form-control" id="search-category" name="category">
+                        <option value="">Semua Kategori</option>
+                        <option value="Hunian">Hunian</option>
+                        <option value="Komersial">Komersial</option>
+                        <option value="Tanah & Lahan">Tanah &amp; Lahan</option>
+                        <option value="Institusi & Fasilitas">Institusi &amp; Fasilitas</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="search-location">
+                        Lokasi
+                    </label>
+                    <input class="form-control" id="search-location" name="location" placeholder="Cari kota atau kecamatan">
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="search-price">
+                    Harga
+                </label>
+                <select class="form-control" id="search-price" name="price">
+                    <option value="">Semua Harga</option>
+                    <option value="0-500jt">&lt; 500 Juta</option>
+                    <option value="500jt-1m">500 Juta - 1 M</option>
+                    <option value="1m+">&gt; 1 M</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+                Cari Properti
+            </button>
+
+        </form>
+    </div>
+
+</div>
+</section>
+
+
+<!-- ============================================
+     STATISTICS
+============================================ -->
+
+<section class="statistics">
+<div class="container">
+
+    <div class="statistics-grid">
+
+        <div class="stat-card">
+            <h2>1.240+</h2>
+            <p>Properti Aktif</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>3.500+</h2>
+            <p>Member Terverifikasi</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>82</h2>
+            <p>Kota di Indonesia</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>4.8/5</h2>
+            <p>Rating Pengguna</p>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ============================================
+     CATEGORY
+============================================ -->
+
+<section class="section">
+<div class="container">
+
+    <div class="section-header">
+        <h2 class="section-title">Kategori Properti</h2>
+        <p class="section-description">
+            Temukan berbagai jenis properti sesuai kebutuhan Anda.
+        </p>
+    </div>
+
+    <div class="category-grid">
+
+        <a href="pages/home.html?category=Hunian" class="category-card">
+            <div class="category-icon">🏠</div>
+            <h3>Hunian</h3>
+            <p>Rumah, apartemen, villa dan tempat tinggal.</p>
+        </a>
+
+        <a href="pages/home.html?category=Komersial" class="category-card">
+            <div class="category-icon">🏢</div>
+            <h3>Komersial</h3>
+            <p>Ruko, kantor, gudang dan area bisnis.</p>
+        </a>
+
+        <a href="pages/home.html?category=Tanah" class="category-card">
+            <div class="category-icon">🌏</div>
+            <h3>Tanah &amp; Lahan</h3>
+            <p>Tanah investasi dan lahan strategis.</p>
+        </a>
+
+        <a href="pages/home.html?category=Institusi" class="category-card">
+            <div class="category-icon">🏛</div>
+            <h3>Institusi</h3>
+            <p>Properti fasilitas dan kebutuhan khusus.</p>
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ============================================
+     FEATURED PROPERTY
+============================================ -->
+
+<section class="section featured-property">
+<div class="container">
+
+    <div class="section-header">
+        <h2 class="section-title">Properti Pilihan</h2>
+        <p class="section-description">
+            Listing terbaik dari member TERAVIA, sudah direview admin.
+        </p>
+    </div>
+
+    <div class="property-grid" data-featured-properties>
+
+        <!-- Loading placeholder, replaced by landing.js -->
+        <div class="card">
+            <div class="property-content">
+                <p>Memuat properti pilihan...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-center" style="margin-top:var(--space-40)">
+        <a href="pages/home.html" class="btn btn-outline">
+            Lihat Semua Properti
+        </a>
+    </div>
+
+</div>
+</section>
+
+
+<!-- ============================================
+     WHY TERAVIA
+============================================ -->
+
+<section class="section" style="background:var(--color-bg-secondary)">
+<div class="container">
+
+    <div class="section-header">
+        <h2 class="section-title">Kenapa TERAVIA</h2>
+        <p class="section-description">
+            Dibangun untuk owner, broker, dan pencari properti di seluruh Indonesia.
+        </p>
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <h3>Listing Terverifikasi</h3>
+            <p>Setiap properti direview admin sebelum tayang, jadi lebih aman untuk pembeli dan penyewa.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <h3>Terhubung Langsung</h3>
+            <p>Owner dan broker terhubung langsung dengan calon pembeli, tanpa perantara berlapis.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🇮🇩</div>
+            <h3>Jangkauan Nasional</h3>
+            <p>Dari kota besar sampai daerah berkembang, TERAVIA menjangkau seluruh Indonesia.</p>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ============================================
+     TESTIMONIAL
+============================================ -->
+
+<section class="section">
+<div class="container">
+
+    <div class="section-header">
+        <h2 class="section-title">Kata Mereka</h2>
+        <p class="section-description">
+            Pengalaman member TERAVIA dalam jual, beli, dan sewa properti.
+        </p>
+    </div>
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial-card">
+            <p>"Properti saya laku dalam 3 minggu setelah pasang di TERAVIA. Prosesnya jelas dan calon pembeli sudah cukup serius saat menghubungi."</p>
+            <div class="testimonial-author">
+                <div class="avatar" style="width:48px;height:48px;background:var(--color-bg-secondary);display:flex;align-items:center;justify-content:center;font-weight:var(--font-bold);color:var(--color-primary)">RS</div>
+                <div>
+                    <strong>Rina S.</strong>
+                    <p style="margin:0">Owner, Jakarta Selatan</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="statistics section">
-        <div class="container">
-            <div class="statistics-grid">
-                <div class="stat-card">
-                    <h2>10K+</h2>
-                    <p>Properti Aktif</p>
-                </div>
-                <div class="stat-card">
-                    <h2>500+</h2>
-                    <p>Agen Rekanan</p>
-                </div>
-                <div class="stat-card">
-                    <h2>8K+</h2>
-                    <p>Transaksi Sukses</p>
+        <div class="testimonial-card">
+            <p>"Sebagai broker, fitur listing terverifikasi bikin klien saya lebih percaya. Dashboard-nya juga gampang dipakai buat kelola banyak listing sekaligus."</p>
+            <div class="testimonial-author">
+                <div class="avatar" style="width:48px;height:48px;background:var(--color-bg-secondary);display:flex;align-items:center;justify-content:center;font-weight:var(--font-bold);color:var(--color-primary)">AH</div>
+                <div>
+                    <strong>Andi H.</strong>
+                    <p style="margin:0">Broker, Bandung</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <a href="index.html" class="logo">
-                        <img src="assets/img/logo.png" alt="TERAVIA Logo">
-                    </a>
-                    <p>Solusi terbaik pencarian dan pengelolaan properti di Indonesia.</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Navigasi</h4>
-                    <a href="index.html">Beranda</a>
-                    <a href="#properti">Properti</a>
-                </div>
-                <div class="footer-column">
-                    <h4>Kontak</h4>
-                    <p>support@teravia.com</p>
+        <div class="testimonial-card">
+            <p>"Cari tanah investasi di luar kota jadi lebih gampang. Filter lokasi dan harganya membantu banget buat menyaring listing yang relevan."</p>
+            <div class="testimonial-author">
+                <div class="avatar" style="width:48px;height:48px;background:var(--color-bg-secondary);display:flex;align-items:center;justify-content:center;font-weight:var(--font-bold);color:var(--color-primary)">DP</div>
+                <div>
+                    <strong>Dewi P.</strong>
+                    <p style="margin:0">Pembeli, Bogor</p>
                 </div>
             </div>
-            <div class="divider"></div>
-            <p class="text-center">&copy; 2026 TERAVIA. Hak Cipta Dilindungi.</p>
         </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="assets/js/config.js"></script>
-    <script src="assets/js/supabase.js"></script>
-    <script src="assets/js/app.js"></script>
+    </div>
+
+</div>
+</section>
+
+
+<!-- ============================================
+     MEMBERSHIP CTA
+============================================ -->
+
+<section class="section cta">
+<div class="container">
+
+    <div class="cta-box">
+        <h2>Jadilah Member Premium TERAVIA</h2>
+        <p>
+            Pasang properti tanpa batas dan jangkau calon pembeli
+            di seluruh Indonesia. Cukup Rp50.000 sekali bayar,
+            berlaku selamanya.
+        </p>
+        <a href="register.html" class="btn btn-secondary">
+            Daftar Sekarang
+        </a>
+    </div>
+
+</div>
+</section>
+
+
+<!-- ============================================
+     BLOG PREVIEW
+============================================ -->
+
+<section class="section">
+<div class="container">
+
+    <div class="section-header">
+        <h2 class="section-title">Tips &amp; Panduan Properti</h2>
+        <p class="section-description">
+            Artikel seputar jual beli dan investasi properti di Indonesia.
+        </p>
+    </div>
+
+    <div class="blog-grid">
+
+        <a href="pages/blog.html" class="blog-card">
+            <img src="assets/img/property-placeholder.jpg" alt="Panduan legalitas properti">
+            <div class="blog-content">
+                <h3>5 Dokumen Legalitas Wajib Sebelum Beli Rumah</h3>
+                <p>Kenali SHM, SHGB, dan dokumen lain sebelum transaksi properti.</p>
+            </div>
+        </a>
+
+        <a href="pages/blog.html" class="blog-card">
+            <img src="assets/img/property-placeholder.jpg" alt="Tips pasang iklan properti">
+            <div class="blog-content">
+                <h3>Cara Pasang Iklan Properti Agar Cepat Laku</h3>
+                <p>Tips foto, deskripsi, dan harga yang menarik calon pembeli.</p>
+            </div>
+        </a>
+
+        <a href="pages/blog.html" class="blog-card">
+            <img src="assets/img/property-placeholder.jpg" alt="Investasi tanah">
+            <div class="blog-content">
+                <h3>Panduan Investasi Tanah untuk Pemula</h3>
+                <p>Hal yang perlu diperhatikan sebelum membeli tanah investasi.</p>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ============================================
+     FAQ
+============================================ -->
+
+<section class="section faq">
+<div class="container">
+
+    <div class="section-header">
+        <h2 class="section-title">Pertanyaan Umum</h2>
+    </div>
+
+    <div class="faq-list">
+
+        <details class="faq-item">
+            <summary>Bagaimana cara pasang iklan properti di TERAVIA?</summary>
+            <p>Daftar akun, pilih peran sebagai Owner atau Broker, lalu isi form pasang properti dari dashboard member. Listing akan direview admin sebelum tayang.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Apakah semua listing sudah terverifikasi?</summary>
+            <p>Setiap properti yang tayang sudah melalui proses review admin untuk memastikan data dan legalitas dasarnya sesuai.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Berapa biaya membership TERAVIA?</summary>
+            <p>Membership premium Rp50.000 sekali bayar dan berlaku selamanya, memberi akses pasang properti tanpa batas.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Apakah TERAVIA menjangkau seluruh Indonesia?</summary>
+            <p>Ya, listing tersedia dari kota besar hingga daerah berkembang di seluruh Indonesia.</p>
+        </details>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ============================================
+     NEWSLETTER
+============================================ -->
+
+<section class="section newsletter">
+<div class="container">
+
+    <div class="newsletter-box">
+        <h2>Dapatkan Info Properti Terbaru</h2>
+        <p>Listing dan tips properti pilihan, langsung ke email Anda.</p>
+
+        <form class="newsletter-form" data-form="newsletter">
+            <input type="email" class="form-control" placeholder="Alamat email" required>
+            <button type="submit" class="btn btn-primary">
+                Berlangganan
+            </button>
+        </form>
+    </div>
+
+</div>
+</section>
+
+
+</main>
+
+
+<div data-footer></div>
+
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- TERAVIA CORE -->
+<script src="assets/js/config.js"></script>
+<script src="assets/js/supabase.js"></script>
+<script src="assets/js/app.js"></script>
+
+<!-- COMPONENT -->
+<script src="assets/js/components/toast.js"></script>
+<script src="assets/js/components/navbar.js"></script>
+<script src="assets/js/components/footer.js"></script>
+
+<!-- PAGE -->
+<script src="assets/js/pages/landing.js"></script>
+
 </body>
-</html>
+
+    </html>
+    
