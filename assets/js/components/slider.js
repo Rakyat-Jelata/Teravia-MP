@@ -261,20 +261,11 @@ const TERAVIA_SLIDER = {
  * Export Global
  */
 
+export {
+    TERAVIA_SLIDER
+};
+
+
 window.TERAVIA_SLIDER =
     TERAVIA_SLIDER;
 
-
-
-/**
- * Auto Init
- */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    ()=>{
-
-        TERAVIA_SLIDER.init();
-
-    }
-);
