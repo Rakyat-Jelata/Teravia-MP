@@ -58,9 +58,9 @@ const TERAVIA_FOOTER = {
             <div class="footer-column">
 
 
-                <img src="assets/images/logo.png"
-                     class="footer-logo"
-                     alt="TERAVIA">
+                <img src="assets/img/logo.png"
+     class="footer-logo"
+     alt="TERAVIA">
 
 
                 <p>
@@ -86,25 +86,19 @@ const TERAVIA_FOOTER = {
                 </h3>
 
 
-                <a href="index.html">
-                    Home
-                </a>
+                <a href="pages/home.html">
+    Properti
+</a>
 
 
-                <a href="property.html">
-                    Properti
-                </a>
+<a href="pages/blog.html">
+    Blog
+</a>
 
 
-                <a href="blog.html">
-                    Blog
-                </a>
-
-
-                <a href="tentang.html">
-                    Tentang Kami
-                </a>
-
+<a href="pages/tentang.html">
+    Tentang Kami
+</a>
 
             </div>
 
@@ -120,17 +114,17 @@ const TERAVIA_FOOTER = {
                 </h3>
 
 
-                <a href="membership.html">
+                <a href="pages/membership.html">
                     Membership Premium
                 </a>
 
 
-                <a href="pasang-iklan.html">
+                <a href=",pages/pasang-iklan.html">
                     Pasang Properti
                 </a>
 
 
-                <a href="dashboard.html">
+                <a href="pahes/dashboard.html">
                     Dashboard Member
                 </a>
 
@@ -258,6 +252,11 @@ const TERAVIA_FOOTER = {
 /**
  * Export Global
  */
+
+export {
+    TERAVIA_FOOTER
+};
+
 
 window.TERAVIA_FOOTER =
     TERAVIA_FOOTER;
