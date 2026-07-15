@@ -10,18 +10,12 @@
 ========================================================== */
 
 .btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:8px;
-padding:12px 24px;
-border:none;
-border-radius:var(--radius-md);
-font-size:14px;
-font-weight:600;
-cursor:pointer;
-transition:.25s ease;
-text-decoration:none;
+    display:block;
+    width:100%;
+    padding:14px;
+    background:red;
+    color:#fff;
+    border:2px solid blue;
 }
 
 .btn:hover{
