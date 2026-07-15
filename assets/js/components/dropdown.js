@@ -95,7 +95,7 @@ const TERAVIA_DROPDOWN = {
 
         const active =
             dropdown.classList.contains(
-                "show"
+                "active"
             );
 
 
@@ -107,7 +107,7 @@ const TERAVIA_DROPDOWN = {
         if(!active){
 
             dropdown.classList.add(
-                "show"
+                "active"
             );
 
         }
@@ -125,13 +125,13 @@ const TERAVIA_DROPDOWN = {
 
         document
         .querySelectorAll(
-            ".dropdown-menu.show"
+            ".dropdown-menu.active"
         )
         .forEach(menu=>{
 
 
             menu.classList.remove(
-                "show"
+                "active"
             );
 
 
@@ -266,6 +266,11 @@ const TERAVIA_DROPDOWN = {
 /**
  * Export Global
  */
+
+export {
+    TERAVIA_DROPDOWN
+};
+
 
 window.TERAVIA_DROPDOWN =
     TERAVIA_DROPDOWN;
