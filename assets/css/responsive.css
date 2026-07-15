@@ -68,16 +68,59 @@
     }
 
 
-    /* Navbar */
+ /* Navbar */
 
-    .nav-menu {
-        display:none;
-    }
+.navbar-wrapper{
+    position:relative;
+    height:70px;
+}
 
+.nav-menu{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    display:none;
+    flex-direction:column;
+    background:#fff;
+    padding:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+    z-index:999;
+}
 
-    .hamburger {
-        display:flex;
-    }
+.nav-menu.active{
+    display:flex;
+}
+
+.nav-menu a{
+    width:100%;
+    padding:14px 0;
+    border-bottom:1px solid #eee;
+}
+
+.nav-action{
+    display:none;
+}
+
+body.menu-open .nav-action{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    position:absolute;
+    top:320px;
+    left:0;
+    background:#fff;
+    padding:0 20px 20px;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+body.menu-open .nav-action a{
+    width:100%;
+}
+
+.hamburger{
+    display:flex;
+}
 
 
     /* Grid */
