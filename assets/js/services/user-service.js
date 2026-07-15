@@ -13,7 +13,7 @@ const TERAVIA_USER_SERVICE = {
 
     async getUserById(id){
         const {data,error}=await supabaseClient
-        .from("users")
+        .from("profiles")
         .select("*")
         .eq("id",id)
         .single();
@@ -24,7 +24,7 @@ const TERAVIA_USER_SERVICE = {
 
     async createProfile(userData){
         const {data,error}=await supabaseClient
-        .from("users")
+        .from("profiles")
         .insert([userData])
         .select()
         .single();
@@ -35,7 +35,7 @@ const TERAVIA_USER_SERVICE = {
 
     async updateProfile(id,userData){
         const {data,error}=await supabaseClient
-        .from("users")
+        .from("profiles")
         .update(userData)
         .eq("id",id)
         .select()
@@ -47,7 +47,7 @@ const TERAVIA_USER_SERVICE = {
 
     async updateRole(id,role){
         const {data,error}=await supabaseClient
-        .from("users")
+        .from("profiles")
         .update({
             role:role
         })
@@ -69,7 +69,7 @@ const TERAVIA_USER_SERVICE = {
 
     async getAllUsers(){
         const {data,error}=await supabaseClient
-        .from("users")
+        .from("profiles")
         .select("*")
         .order(
             "created_at",
@@ -84,7 +84,7 @@ const TERAVIA_USER_SERVICE = {
 
     async deleteUser(id){
         const {error}=await supabaseClient
-        .from("users")
+        .from("profiles")
         .delete()
         .eq("id",id);
 
