@@ -112,14 +112,17 @@ const TERAVIA_APP = {
 
             case "toggle-menu":
 
-                document
-                .body
-                .classList
-                .toggle(
-                    "menu-open"
-                );
+document
+.querySelector(".nav-menu")
+.classList
+.toggle("active");
 
-            break;
+document
+.body
+.classList
+.toggle("menu-open");
+
+break;
 
 
             default:
