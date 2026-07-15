@@ -1,4 +1,5 @@
-import { supabase } from "../supabase.js";
+const supabase =
+    window.supabaseClient;
 
 
 export async function checkAdmin(){
