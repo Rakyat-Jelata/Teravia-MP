@@ -1,303 +1,336 @@
-/* =====================================================
-   TERAVIA - Application Core
-   File: assets/js/app.js
-===================================================== */
+/* ==========================================================
+   TERAVIA
+   Application Core
+   app.js
+   Version : 2.0
+========================================================== */
 
 
-/**
- * TERAVIA APP INITIALIZER
- */
+/* ==========================================================
+   CORE IMPORT
+========================================================== */
 
-const TERAVIA_APP = {
+import "./config.js";
+import "./supabase.js";
 
 
-    /**
-     * Initialize Application
-     */
+/* ==========================================================
+   COMPONENT IMPORT
+========================================================== */
 
-    init(){
+import "./components/navbar.js";
+import "./components/footer.js";
+import "./components/toast.js";
+import "./components/modal.js";
+import "./components/dropdown.js";
+import "./components/slider.js";
 
-        console.log(
-            "🚀 TERAVIA Application Started"
-        );
 
 
-        this.detectPage();
+/* ==========================================================
+   SERVICE IMPORT
+========================================================== */
 
+import "./services/auth-service.js";
+import "./services/user-service.js";
+import "./services/property-service.js";
+import "./services/storage-service.js";
+import "./services/activity-service.js";
 
-        this.initGlobalEvents();
 
 
-        this.checkAuthSession();
-
-
-    },
-
-
-    /**
-     * Detect Current Page
-     */
-
-    detectPage(){
-
-        const page =
-            document.body.dataset.page;
-
-
-        if(!page) return;
-
-
-        console.log(
-            "Current Page:",
-            page
-        );
-
-
-        window.TERAVIA_PAGE = page;
-
-    },
-
-
-    /**
-     * Global Event Listener
-     */
-
-    initGlobalEvents(){
-
-
-        document.addEventListener(
-            "click",
-            (event)=>{
-
-
-                const target =
-                    event.target.closest(
-                        "[data-action]"
-                    );
-
-
-                if(!target) return;
-
-
-                const action =
-                    target.dataset.action;
-
-
-                this.handleAction(action,target);
-
-
-            }
-        );
-
-
-    },
-
-
-    /**
-     * Global Action Handler
-     */
-
-    handleAction(action,element){
-
-
-        switch(action){
-
-
-            case "logout":
-
-                this.logout();
-
-            break;
-
-
-            case "toggle-menu":
-
-document
-.querySelector(".nav-menu")
-.classList
-.toggle("active");
-
-document
-.body
-.classList
-.toggle("menu-open");
-
-break;
-
-
-            default:
-
-                console.log(
-                    "Unknown action:",
-                    action
-                );
-
-        }
-
-    },
-
-
-    /**
-     * Check User Session
-     */
-
-    async checkAuthSession(){
-
-
-        if(
-            typeof supabaseClient ===
-            "undefined"
-        ){
-
-            console.warn(
-                "Supabase not initialized"
-            );
-
-            return;
-
-        }
-
-
-
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
-        .auth
-        .getSession();
-
-
-
-        if(error){
-
-            console.error(
-                error
-            );
-
-            return;
-
-        }
-
-
-
-        window.TERAVIA_USER =
-            data.session?.user || null;
-
-
-
-        if(
-            TERAVIA_USER
-        ){
-
-            console.log(
-                "User Login:",
-                TERAVIA_USER.email
-            );
-
-        }
-        else{
-
-            console.log(
-                "Guest Visitor"
-            );
-
-        }
-
-
-    },
-
-
-    /**
-     * Logout User
-     */
-
-    async logout(){
-
-
-        if(
-            typeof supabaseClient ===
-            "undefined"
-        ){
-
-            return;
-
-        }
-
-
-        const {
-            error
-        } =
-        await supabaseClient
-        .auth
-        .signOut();
-
-
-
-        if(error){
-
-            console.error(error);
-
-            return;
-
-        }
-
-
-        window.location.href =
-            "/login.html";
-
-
-    },
-
-
-    /**
-     * Redirect Helper
-     */
-
-    redirect(url){
-
-        window.location.href = url;
-
-    },
-
-
-    /**
-     * Simple Notification
-     */
-
-    notify(message,type="info"){
-
-
-        console.log(
-            `[${type}]`,
-            message
-        );
-
-
-    }
-
-
-};
-
-
-
-/**
- * Start Application
- */
+/* ==========================================================
+   APP START
+========================================================== */
 
 document.addEventListener(
-    "DOMContentLoaded",
-    ()=>{
+"DOMContentLoaded",
+()=>{
+    initApp();
+});
 
-        TERAVIA_APP.init();
+
+
+function initApp(){
+
+    console.log(
+        "🚀 TERAVIA Application Initialized"
+    );
+
+
+    initPage();
+
+    initGlobalEvents();
+
+}
+
+
+
+
+/* ==========================================================
+   PAGE ROUTER
+========================================================== */
+
+function initPage(){
+
+    const page =
+    document.body.dataset.page;
+
+
+    if(!page){
+
+        console.log(
+            "Page attribute not found"
+        );
+
+        return;
 
     }
-);
 
 
-/**
- * Export Global
- */
+    switch(page){
 
-window.TERAVIA_APP =
-    TERAVIA_APP;
+
+        case "landing":
+
+            initLanding();
+
+        break;
+
+
+
+        case "home":
+
+            initHome();
+
+        break;
+
+
+
+        case "detail-property":
+
+            initDetailProperty();
+
+        break;
+
+
+
+        case "dashboard":
+
+            initDashboard();
+
+        break;
+
+
+
+        case "profile":
+
+            initProfile();
+
+        break;
+
+
+
+        case "admin":
+
+            initAdmin();
+
+        break;
+
+
+
+        default:
+
+            console.log(
+                "Unknown page:",
+                page
+            );
+
+    }
+
+}
+
+
+
+
+/* ==========================================================
+   LANDING PAGE
+========================================================== */
+
+function initLanding(){
+
+    console.log(
+        "🏠 Landing Page Ready"
+    );
+
+}
+
+
+
+/* ==========================================================
+   HOME PAGE
+========================================================== */
+
+function initHome(){
+
+    console.log(
+        "🏘 Property Marketplace Ready"
+    );
+
+}
+
+
+
+/* ==========================================================
+   DETAIL PROPERTY
+========================================================== */
+
+function initDetailProperty(){
+
+    console.log(
+        "🏡 Property Detail Ready"
+    );
+
+}
+
+
+
+/* ==========================================================
+   DASHBOARD
+========================================================== */
+
+function initDashboard(){
+
+    console.log(
+        "📊 Dashboard Ready"
+    );
+
+}
+
+
+
+/* ==========================================================
+   PROFILE
+========================================================== */
+
+function initProfile(){
+
+    console.log(
+        "👤 Profile Ready"
+    );
+
+}
+
+
+
+/* ==========================================================
+   ADMIN
+========================================================== */
+
+function initAdmin(){
+
+    console.log(
+        "🛡 Admin Panel Ready"
+    );
+
+}
+
+
+
+/* ==========================================================
+   GLOBAL EVENTS
+========================================================== */
+
+function initGlobalEvents(){
+
+
+    initBackToTop();
+
+
+    console.log(
+        "✓ Global Events Loaded"
+    );
+
+
+}
+
+
+
+/* ==========================================================
+   BACK TO TOP
+========================================================== */
+
+function initBackToTop(){
+
+
+    const button =
+    document.querySelector(
+        "[data-action='back-to-top']"
+    );
+
+
+    if(!button) return;
+
+
+
+    window.addEventListener(
+        "scroll",
+        ()=>{
+
+
+            if(window.scrollY > 300){
+
+                button.classList.add(
+                    "show"
+                );
+
+            }else{
+
+                button.classList.remove(
+                    "show"
+                );
+
+            }
+
+
+        }
+    );
+
+
+
+    button.addEventListener(
+        "click",
+        ()=>{
+
+            window.scrollTo({
+
+                top:0,
+
+                behavior:"smooth"
+
+            });
+
+        }
+    );
+
+
+}
+
+
+
+/* ==========================================================
+   ERROR HANDLER
+========================================================== */
+
+window.addEventListener(
+"error",
+(event)=>{
+
+
+    console.error(
+        "TERAVIA Error:",
+        event.error
+    );
+
+
+});
