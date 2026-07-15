@@ -4,6 +4,7 @@ const supabase =
 
 export async function checkAdmin(){
 
+
     const { data:{ user } } =
     await supabase.auth.getUser();
 
