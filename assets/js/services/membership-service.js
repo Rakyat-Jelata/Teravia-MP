@@ -40,11 +40,7 @@ export async function checkMembership(){
     }
 
 
-    const expired = new Date(membership.expired_at);
-    const now = new Date();
-
-
-    return expired > now;
+    return membership.status === "active";
 }
 
 
@@ -61,24 +57,19 @@ export async function createMembership(paymentData){
 
     const startDate = new Date();
 
-    const expiredDate = new Date();
-    expiredDate.setFullYear(
-        expiredDate.getFullYear()+1
-    );
-
 
     const payload = {
         user_id:user.id,
         plan:"premium",
-        price:150000,
-        listing_limit:10,
-        listing_used:0,
-        boost_total:10,
-        boost_used:0,
-        auto_boost_daily:true,
-        status:"active",
-        start_at:startDate,
-        expired_at:expiredDate,
+        price:50000,
+listing_limit:null,
+listing_used:0,
+boost_total:0,
+boost_used:0,
+auto_boost_daily:false,
+status:"active",
+start_at:startDate,
+expired_at:null,
         payment_id:paymentData?.id || null
     };
 
