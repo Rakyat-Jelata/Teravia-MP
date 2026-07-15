@@ -1,4 +1,4 @@
-import { supabase } from "../supabase.js";
+const supabase = window.supabaseClient;
 
 const TABLE = "payments";
 
@@ -192,7 +192,7 @@ export const membershipProduct = {
 
     name:"TERAVIA Premium",
 
-    price:150000,
+    price:500000,
 
     currency:"IDR",
 
@@ -200,9 +200,9 @@ export const membershipProduct = {
     "Upgrade akun kamu supaya bisa posting listingan kamu di TERAVIA.",
 
     benefits:[
-        "10 slot posting listing property",
-        "Bonus 10x auto sundul",
-        "Auto sundul 1x setiap hari",
-        "Listing lebih mudah ditemukan calon pembeli"
+    "Membership Premium Lifetime",
+    "Bisa memposting listing properti",
+    "Listing diverifikasi admin",
+    "Akses seluruh fitur member TERAVIA"
     ]
 };
