@@ -12,7 +12,7 @@
 
   <!-- Bootstrap 5 CSS & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/font-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
   <!-- CSS Global (Keluar 1 folder ke parent directory) -->
   <link rel="stylesheet" href="../assets/css/reset.css">
@@ -45,7 +45,9 @@
 <body>
 
   <!-- Bagian Navbar (Dibuat dinamis oleh navbar.js) -->
-  <div id="navbar-component"></div>
+  <header class="header">
+    <div data-navbar></div>
+</header>
 
   <main class="container py-5">
     <!-- Breadcrumb Navigasi -->
@@ -70,27 +72,11 @@
   </main>
 
   <!-- Bagian Footer (Dibuat dinamis oleh footer.js) -->
-  <div id="footer-component"></div>
+  <div data-footer></div>
 
   <!-- ==================== JS DEPENDENCIES ==================== -->
-  <!-- 1. Supabase SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="../assets/js/app.js"></script>
   
-  <!-- 2. Konfigurasi & Inisialisasi DB (Naik 1 folder) -->
-  <script src="../assets/js/config.js"></script>
-  <script src="../assets/js/supabase.js"></script>
-  
-  <!-- 3. Komponen UI Global -->
-  <script src="../assets/js/components/navbar.js"></script>
-  <script src="../assets/js/components/footer.js"></script>
-  <script src="../assets/js/components/toast.js"></script>
-
-  <!-- 4. Services Logic -->
-  <script src="../assets/js/services/property-service.js"></script>
-
-  <!-- 5. Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
   <!-- 6. Logika Renderer Dinamis Detail Halaman -->
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
@@ -113,8 +99,8 @@
 
       try {
         // 2. Gunakan PropertyService global untuk mengambil data
-        if (window.TERAVIA_APP && window.TERAVIA_APP.PropertyService) {
-          const property = await window.TERAVIA_APP.PropertyService.getPropertyDetail(propertyId);
+        if (window.PropertyService) {
+    const property = await window.PropertyService.getPropertyById(propertyId);
 
           if (!property) {
             container.innerHTML = `
@@ -132,7 +118,7 @@
           // Siapkan gambar (atau placeholder jika kosong)
           const images = property.property_images && property.property_images.length > 0
             ? property.property_images
-            : [{ image_url: '../assets/img/property-placeholder.jpg.jpeg' }];
+            : [{ image_url: '../assets/img/property-placeholder.jpeg' }];
 
           // Render halaman secara utuh
           container.innerHTML = `
@@ -201,8 +187,8 @@
         } else {
           container.innerHTML = `
             <div class="col-12 text-center py-5 text-warning">
-              <h3>Modul layanan belum dikonversi.</h3>
-              <p>Pastikan file property-service.js sudah dikonversi ke Global Namespace.</p>
+              <h3>PropertyService tidak ditemukan.</h3>
+              <p>Pastikan app.js berhasil dimuat.</p>
             </div>`;
         }
       } catch (err) {
