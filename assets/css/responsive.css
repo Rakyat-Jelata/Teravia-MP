@@ -393,14 +393,6 @@
 
 .nav-menu{
 display:none;
-flex-direction:column;
-position:absolute;
-top:100%;
-left:0;
-width:100%;
-background:#fff;
-padding:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 .nav-menu.active{
@@ -414,7 +406,6 @@ display:none;
 .hamburger{
 display:flex;
 flex-direction:column;
-gap:5px;
 cursor:pointer;
 }
 
