@@ -126,9 +126,13 @@ const TERAVIA_TOAST = {
 
 
         container.appendChild(
-            toast
-        );
+    toast
+);
 
+
+toast.classList.add(
+    "active"
+);
 
 
         // Close button
@@ -173,31 +177,29 @@ const TERAVIA_TOAST = {
      */
 
     remove(toast){
+remove(toast){
+
+    if(!toast)
+        return;
 
 
-        if(!toast)
-            return;
+    toast.classList.remove(
+        "active"
+    );
 
 
+    setTimeout(
+        ()=>{
 
-        toast.classList.add(
-            "active"
-        );
+            toast.remove();
 
+        },
 
-        setTimeout(
-            ()=>{
+        300
 
-                toast.remove();
+    );
 
-            },
-
-            300
-
-        );
-
-
-    },
+},
 
 
     /**
