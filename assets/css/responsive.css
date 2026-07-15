@@ -389,32 +389,6 @@
 
 }
 
-@media (max-width:992px){
-
-.nav-menu{
-display:none;
-}
-
-.nav-menu.active{
-display:flex;
-}
-
-.nav-action{
-display:none;
-}
-
-.hamburger{
-display:flex;
-flex-direction:column;
-cursor:pointer;
-}
-
-.hamburger span{
-width:24px;
-height:2px;
-background:#222;
-}
-
 /* =====================================
    NAVBAR RESPONSIVE
 ===================================== */
@@ -476,18 +450,3 @@ body.menu-open .nav-action a{
 }
 
 
-@media (min-width:992px){
-
-.nav-menu{
-    display:flex !important;
-}
-
-.nav-action{
-    display:flex !important;
-}
-
-.hamburger{
-    display:none !important;
-}
-
-}
