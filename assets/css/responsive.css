@@ -1,435 +1,281 @@
-/* =====================================================
-   TERAVIA - Global Responsive Styles
-   File: assets/css/responsive.css
-===================================================== */
+/* ==========================================================
+   TERAVIA
+   Responsive CSS
+   Version : 2.0
+========================================================== */
 
 
-/* =====================================================
-   LARGE DESKTOP
-===================================================== */
+/* ==========================================================
+   MOBILE DEFAULT
+========================================================== */
 
-@media (max-width:1200px){
+@media(max-width:768px){
 
-    .container {
-        padding-left:25px;
-        padding-right:25px;
-    }
+/* CONTAINER */
 
-
-    /* Property */
-
-    .property-grid {
-        grid-template-columns:repeat(3,1fr);
-    }
+.container{
+width:100%;
+padding-left:16px;
+padding-right:16px;
+}
 
 
-    /* Dashboard */
+/* FLEX */
 
-    .dashboard-container {
-        grid-template-columns:240px 1fr;
-    }
-
-
-    .dashboard-stats {
-        grid-template-columns:repeat(2,1fr);
-    }
+.mobile-column{
+flex-direction:column!important;
+}
 
 
-    /* Admin */
+/* BUTTON */
 
-    .admin-layout {
-        grid-template-columns:230px 1fr;
-    }
+.btn{
+width:auto;
+padding:11px 18px;
+}
 
 
-    .admin-stats {
-        grid-template-columns:repeat(2,1fr);
-    }
+/* HEADER / NAVBAR */
+
+.navbar-menu{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#fff;
+display:none;
+flex-direction:column;
+padding:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.navbar-menu.active{
+display:flex;
+}
+
+.navbar-toggle{
+display:flex;
+}
+
+
+/* HERO */
+
+.hero{
+min-height:520px;
+}
+
+.hero-content{
+text-align:center;
+}
+
+.hero-title{
+font-size:32px;
+}
+
+.hero-description{
+font-size:15px;
+}
+
+
+/* GRID */
+
+.grid{
+grid-template-columns:1fr!important;
+}
+
+.property-grid{
+grid-template-columns:1fr;
+}
+
+
+/* PROPERTY CARD */
+
+.property-image{
+height:190px;
+}
+
+
+/* FORM */
+
+.form-row{
+grid-template-columns:1fr!important;
+}
+
+
+/* MODAL */
+
+.modal-content{
+width:94%;
+}
+
+.modal-footer{
+flex-direction:column;
+}
+
+.modal-footer .btn{
+width:100%;
+}
+
+
+/* DASHBOARD */
+
+.dashboard-sidebar{
+position:fixed;
+left:-280px;
+top:0;
+height:100%;
+z-index:1500;
+transition:.3s ease;
+}
+
+.dashboard-sidebar.active{
+left:0;
+}
+
+.dashboard-content{
+margin-left:0;
+}
+
 
 }
 
 
-/* =====================================================
+/* ==========================================================
    TABLET
-===================================================== */
+========================================================== */
 
-@media (max-width:992px){
+@media(min-width:769px) and (max-width:1024px){
 
-
-    /* Global */
-
-    h1 {
-        font-size:32px;
-    }
-
-
-    h2 {
-        font-size:24px;
-    }
-
-
- /* Navbar */
-
-.navbar-wrapper{
-    position:relative;
-    height:70px;
-}
-
-.nav-menu{
-    position:absolute;
-    top:70px;
-    left:0;
-    width:100%;
-    display:none;
-    flex-direction:column;
-    background:#fff;
-    padding:20px;
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
-    z-index:999;
-}
-
-.nav-menu.active{
-    display:flex;
-}
-
-.nav-menu a{
-    width:100%;
-    padding:14px 0;
-    border-bottom:1px solid #eee;
-}
-
-.nav-action{
-    display:none;
-}
-
-body.menu-open .nav-action{
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    position:absolute;
-    top:320px;
-    left:0;
-    background:#fff;
-    padding:0 20px 20px;
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
-}
-
-body.menu-open .nav-action a{
-    width:100%;
-}
-
-.hamburger{
-    display:flex;
+.container{
+max-width:960px;
+margin:auto;
+padding-left:24px;
+padding-right:24px;
 }
 
 
-    /* Grid */
+/* GRID */
 
-    .property-grid,
-    .blog-grid {
-        grid-template-columns:repeat(2,1fr);
-    }
-
-
-    /* Home Hero */
-
-    .hero-content {
-        max-width:100%;
-        text-align:center;
-    }
-
-
-    /* Dashboard */
-
-    .dashboard-container {
-        grid-template-columns:1fr;
-    }
-
-
-    .dashboard-sidebar {
-        position:relative;
-    }
-
-
-    .dashboard-properties {
-        grid-template-columns:1fr;
-    }
-
-
-    /* Membership */
-
-    .membership-plans {
-        grid-template-columns:1fr;
-    }
-
-
-    .benefit-grid {
-        grid-template-columns:repeat(2,1fr);
-    }
-
-
-    /* Profile */
-
-    .profile-layout {
-        grid-template-columns:1fr;
-    }
-
-
-    /* Admin */
-
-    .admin-layout {
-        grid-template-columns:1fr;
-    }
-
-
-    .admin-sidebar {
-        position:relative;
-    }
-
+.property-grid{
+grid-template-columns:repeat(2,1fr);
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width:768px){
-
-
-    /* Container */
-
-    .container {
-        padding-left:15px;
-        padding-right:15px;
-    }
-
-
-    /* Typography */
-
-    h1 {
-        font-size:28px;
-    }
-
-
-    h2 {
-        font-size:22px;
-    }
-
-
-    /* Buttons */
-
-    .btn {
-        width:100%;
-        justify-content:center;
-    }
-
-
-
-    /* =====================
-       NAVBAR
-    ===================== */
-
-    .navbar {
-        padding:15px;
-    }
-
-
-    .logo {
-        width:120px;
-    }
-
-
-
-    /* =====================
-       HOME
-    ===================== */
-
-
-    .hero {
-        padding:60px 0;
-    }
-
-
-    .hero-title {
-        font-size:30px;
-    }
-
-
-    .search-box {
-        flex-direction:column;
-    }
-
-
-
-    /* =====================
-       PROPERTY
-    ===================== */
-
-
-    .property-grid {
-        grid-template-columns:1fr;
-    }
-
-
-    .property-filter {
-        flex-direction:column;
-    }
-
-
-
-    /* =====================
-       DETAIL PROPERTY
-    ===================== */
-
-
-    .property-detail-layout {
-        grid-template-columns:1fr;
-    }
-
-
-    .property-gallery {
-        height:300px;
-    }
-
-
-
-    /* =====================
-       BLOG
-    ===================== */
-
-
-    .blog-grid {
-        grid-template-columns:1fr;
-    }
-
-
-
-    /* =====================
-       DASHBOARD
-    ===================== */
-
-
-    .dashboard-header {
-        flex-direction:column;
-        align-items:flex-start;
-        gap:15px;
-    }
-
-
-    .dashboard-stats {
-        grid-template-columns:1fr;
-    }
-
-
-
-    /* =====================
-       MEMBERSHIP
-    ===================== */
-
-
-    .membership-card {
-        padding:25px;
-    }
-
-
-    .benefit-grid {
-        grid-template-columns:1fr;
-    }
-
-
-
-    /* =====================
-       AUTH
-    ===================== */
-
-
-    .auth-card {
-        padding:25px 20px;
-    }
-
-
-    .auth-options {
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
-    }
-
-
-    .role-selector {
-        grid-template-columns:1fr;
-    }
-
-
-
-    /* =====================
-       ADMIN
-    ===================== */
-
-
-    .admin-content {
-        padding:15px;
-    }
-
-
-    .admin-header {
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-
-    .admin-filter {
-        flex-direction:column;
-    }
-
-
-    .approval-actions {
-        flex-direction:column;
-        width:100%;
-    }
-
-
-    .admin-btn {
-        width:100%;
-    }
+.hero-title{
+font-size:42px;
+}
 
 
 }
 
 
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
+/* ==========================================================
+   DESKTOP
+========================================================== */
 
-@media (max-width:480px){
+@media(min-width:1025px){
 
-
-    .hero-title {
-        font-size:24px;
-    }
-
-
-    .section-title {
-        font-size:22px;
-    }
+.container{
+max-width:1200px;
+margin:auto;
+}
 
 
-    .property-card-image {
-        height:180px;
-    }
+.property-grid{
+grid-template-columns:repeat(3,1fr);
+}
 
 
-    .dashboard-section,
-    .admin-card,
-    .membership-card {
-        padding:20px;
-    }
+.hero-title{
+font-size:56px;
+}
 
-
-    .otp-input {
-        width:42px;
-        height:48px;
-    }
 
 }
 
 
+/* ==========================================================
+   LARGE DESKTOP
+========================================================== */
+
+@media(min-width:1440px){
+
+.container{
+max-width:1320px;
+}
+
+.property-grid{
+grid-template-columns:repeat(4,1fr);
+}
+
+}
+
+
+/* ==========================================================
+   MOBILE SMALL DEVICE
+========================================================== */
+
+@media(max-width:480px){
+
+.hero-title{
+font-size:28px;
+}
+
+.hero-description{
+font-size:14px;
+}
+
+
+.card-body,
+.card-header,
+.card-footer{
+padding:16px;
+}
+
+
+.property-content{
+padding:16px;
+}
+
+
+.fs-24{
+font-size:22px!important;
+}
+
+
+}
+
+
+/* ==========================================================
+   LANDSCAPE MOBILE
+========================================================== */
+
+@media(max-height:500px) and (orientation:landscape){
+
+.hero{
+min-height:450px;
+}
+
+
+}
+
+
+/* ==========================================================
+   PRINT
+========================================================== */
+
+@media print{
+
+.navbar,
+.footer,
+.btn,
+.modal,
+.toast{
+display:none!important;
+}
+
+body{
+background:#fff;
+}
+
+}
