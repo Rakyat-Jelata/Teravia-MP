@@ -4,13 +4,32 @@
 ===================================================== */
 
 
-const config = window.TERAVIA_CONFIG;
+import {
+    createClient
+} from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
 
-const supabaseClient = supabase.createClient(
-    config.SUPABASE.URL,
-    config.SUPABASE.ANON_KEY
+import TERAVIA_CONFIG
+from "./config.js";
+
+
+
+const supabaseClient = createClient(
+    TERAVIA_CONFIG.SUPABASE.URL,
+    TERAVIA_CONFIG.SUPABASE.ANON_KEY
 );
 
 
+
+export {
+    supabaseClient
+};
+
+
+
 window.supabaseClient = supabaseClient;
+
+
+console.log(
+    "✓ Supabase Client Initialized"
+);
