@@ -1,4 +1,5 @@
-import { supabase } from "../supabase.js";
+const supabase =
+    window.supabaseClient;
 
 const BUCKET = "property-images";
 
