@@ -1,94 +1,110 @@
-const TERAVIA_NAVBAR = {
+/* ==========================================================
+   TERAVIA
+   Navbar Component
+   assets/js/components/navbar.js
+   Version : 2.0
+========================================================== */
 
-    init(){
+const TERAVIA_NAVBAR={
 
-        this.render();
-        this.bindMobileMenu();
+init(){
 
-    },
+this.basePath=this.getBasePath();
+this.render();
+this.bindMobileMenu();
+this.setActiveMenu();
 
+},
 
-    render(){
+getBasePath(){
 
-        const container = document.querySelector("[data-navbar]");
+const path=window.location.pathname.toLowerCase();
 
-        if(!container) return;
+return path.includes("/pages/")?"../":"";
 
-        container.innerHTML = `
-        <nav class="navbar">
-            <div class="navbar-container">
+},
 
-                <a href="../index.html" class="navbar-brand">
-                    TERAVIA
-                </a>
+render(){
 
-                <button id="hamburger" class="hamburger">
-                    ☰
-                </button>
+const base=this.basePath;
 
-                <ul class="nav-menu">
-                    <li><a href="../index.html">Beranda</a></li>
-                    <li><a href="home.html">Cari Properti</a></li>
-                    <li><a href="pasang-iklan.html">Pasang Iklan</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="tentang.html">Tentang</a></li>
-                    <li><a href="login.html" class="btn btn-primary">Masuk</a></li>
-                </ul>
+const container=document.querySelector("[data-navbar]");
 
-            </div>
-        </nav>
-        `;
+if(!container)return;
 
-    },
+container.innerHTML=`
 
+<nav class="navbar">
 
-    bindMobileMenu(){
+<div class="container navbar-container">
 
-        const hamburger =
-            document.getElementById("hamburger");
+<a href="${base}index.html" class="navbar-logo">
 
-        const navMenu =
-            document.querySelector(".nav-menu");
+<img src="${base}assets/img/logo.png" alt="TERAVIA">
 
-        const body =
-            document.body;
+</a>
 
+<button
+class="hamburger"
+id="hamburger"
+type="button"
+aria-label="Toggle Menu">
 
-        if(!hamburger || !navMenu) return;
+<span></span>
+<span></span>
+<span></span>
 
+</button>
 
-        hamburger.addEventListener("click",()=>{
+<ul class="nav-menu">
 
-            navMenu.classList.toggle("active");
-            hamburger.classList.toggle("active");
-            body.classList.toggle("menu-open");
+<li>
+<a href="${base}index.html" data-page="landing">
+Beranda
+</a>
+</li>
 
-        });
+<li>
+<a href="${base}pages/home.html" data-page="property">
+Cari Properti
+</a>
+</li>
 
+<li>
+<a href="${base}pages/pasang-iklan.html" data-page="listing">
+Pasang Iklan
+</a>
+</li>
 
-        navMenu.querySelectorAll("a")
-        .forEach(link=>{
+<li>
+<a href="${base}pages/blog.html" data-page="blog">
+Blog
+</a>
+</li>
 
-            link.addEventListener("click",()=>{
+<li>
+<a href="${base}pages/tentang.html" data-page="about">
+Tentang
+</a>
+</li>
 
-                navMenu.classList.remove("active");
-                hamburger.classList.remove("active");
-                body.classList.remove("menu-open");
+<li class="nav-login">
 
-            });
+<a href="${base}login.html"
+class="btn btn-primary">
 
-        });
+Masuk
 
-    }
+</a>
 
-};
+</li>
 
+</ul>
 
-document.addEventListener("DOMContentLoaded",()=>{
+</div>
 
-    TERAVIA_NAVBAR.init();
+</nav>
 
-});
+`;
 
-
-window.TERAVIA_NAVBAR = TERAVIA_NAVBAR;
+},
