@@ -119,12 +119,12 @@ const TERAVIA_FOOTER = {
                 </a>
 
 
-                <a href=",pages/pasang-iklan.html">
+                <a href="pages/pasang-iklan.html">
                     Pasang Properti
                 </a>
 
 
-                <a href="pahes/dashboard.html">
+                <a href="pages/dashboard.html">
                     Dashboard Member
                 </a>
 
