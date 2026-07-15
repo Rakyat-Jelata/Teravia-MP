@@ -59,7 +59,7 @@ async list(limit=20){
 
 try{
 
-const user=await AuthGuard.user();
+const user=await TERAVIA_AUTH.getUser()();
 
 if(!user)
 throw new Error("Silakan login terlebih dahulu.");
@@ -104,7 +104,7 @@ async read(id){
 
 try{
 
-const user=await AuthGuard.user();
+const user=await TERAVIA_AUTH.getUser()();
 
 if(!user)
 throw new Error("Silakan login terlebih dahulu.");
