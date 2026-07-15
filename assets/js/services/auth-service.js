@@ -2,7 +2,10 @@
    TERAVIA - Authentication Service
    File: assets/js/services/auth-service.js
 ===================================================== */
-
+import {
+    supabaseClient
+}
+from "../supabase.js";
 
 const TERAVIA_AUTH = {
 
@@ -351,9 +354,10 @@ const TERAVIA_AUTH = {
 
 
 
-/**
- * Export Global
- */
+export {
+    TERAVIA_AUTH
+};
+
 
 window.TERAVIA_AUTH =
     TERAVIA_AUTH;
