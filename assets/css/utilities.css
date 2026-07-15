@@ -1,161 +1,288 @@
 /* ==========================================================
    TERAVIA
-   utilities.css
-   Utility Classes
-   Version : 1.0
+   Utilities CSS
+   Version : 2.0
 ========================================================== */
 
-/* ===== Container ===== */
+/* ==========================================================
+   DISPLAY
+========================================================== */
 
-.container {
-    width: 100%;
-    max-width: var(--container-width);
-    margin-inline: auto;
-    padding-inline: var(--container-padding);
+.d-none{display:none!important}
+.d-block{display:block!important}
+.d-flex{display:flex!important}
+.d-grid{display:grid!important}
+.d-inline{display:inline!important}
+.d-inline-block{display:inline-block!important}
+
+
+/* ==========================================================
+   FLEX
+========================================================== */
+
+.flex-row{flex-direction:row!important}
+.flex-column{flex-direction:column!important}
+
+.flex-wrap{flex-wrap:wrap!important}
+.flex-nowrap{flex-wrap:nowrap!important}
+
+.justify-start{justify-content:flex-start!important}
+.justify-center{justify-content:center!important}
+.justify-end{justify-content:flex-end!important}
+.justify-between{justify-content:space-between!important}
+.justify-around{justify-content:space-around!important}
+
+.align-start{align-items:flex-start!important}
+.align-center{align-items:center!important}
+.align-end{align-items:flex-end!important}
+.align-stretch{align-items:stretch!important}
+
+
+/* ==========================================================
+   GAP
+========================================================== */
+
+.gap-4{gap:4px!important}
+.gap-8{gap:8px!important}
+.gap-12{gap:12px!important}
+.gap-16{gap:16px!important}
+.gap-20{gap:20px!important}
+.gap-24{gap:24px!important}
+.gap-32{gap:32px!important}
+
+
+/* ==========================================================
+   WIDTH & HEIGHT
+========================================================== */
+
+.w-100{width:100%!important}
+.w-auto{width:auto!important}
+
+.h-100{height:100%!important}
+.h-auto{height:auto!important}
+
+
+/* ==========================================================
+   MARGIN
+========================================================== */
+
+.m-0{margin:0!important}
+
+.mt-4{margin-top:4px!important}
+.mt-8{margin-top:8px!important}
+.mt-16{margin-top:16px!important}
+.mt-24{margin-top:24px!important}
+.mt-32{margin-top:32px!important}
+
+.mb-4{margin-bottom:4px!important}
+.mb-8{margin-bottom:8px!important}
+.mb-16{margin-bottom:16px!important}
+.mb-24{margin-bottom:24px!important}
+.mb-32{margin-bottom:32px!important}
+
+.mx-auto{
+margin-left:auto!important;
+margin-right:auto!important;
 }
 
-/* ===== Display ===== */
 
-.d-block { display: block; }
-.d-inline { display: inline; }
-.d-inline-block { display: inline-block; }
-.d-flex { display: flex; }
-.d-grid { display: grid; }
-.d-none { display: none; }
+/* ==========================================================
+   PADDING
+========================================================== */
 
-/* ===== Flex ===== */
+.p-0{padding:0!important}
 
-.flex-row { flex-direction: row; }
-.flex-column { flex-direction: column; }
+.p-8{padding:8px!important}
+.p-12{padding:12px!important}
+.p-16{padding:16px!important}
+.p-24{padding:24px!important}
+.p-32{padding:32px!important}
 
-.flex-wrap { flex-wrap: wrap; }
-
-.justify-start { justify-content: flex-start; }
-.justify-center { justify-content: center; }
-.justify-end { justify-content: flex-end; }
-.justify-between { justify-content: space-between; }
-.justify-around { justify-content: space-around; }
-
-.align-start { align-items: flex-start; }
-.align-center { align-items: center; }
-.align-end { align-items: flex-end; }
-.align-stretch { align-items: stretch; }
-
-.gap-8 { gap: var(--space-8); }
-.gap-16 { gap: var(--space-16); }
-.gap-24 { gap: var(--space-24); }
-.gap-32 { gap: var(--space-32); }
-
-/* ===== Grid ===== */
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-24);
+.px-16{
+padding-left:16px!important;
+padding-right:16px!important;
 }
 
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-24);
+.py-16{
+padding-top:16px!important;
+padding-bottom:16px!important;
 }
 
-.grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-24);
+
+/* ==========================================================
+   TEXT
+========================================================== */
+
+.text-left{text-align:left!important}
+.text-center{text-align:center!important}
+.text-right{text-align:right!important}
+
+.text-uppercase{
+text-transform:uppercase!important;
 }
 
-/* ===== Width ===== */
-
-.w-100 { width: 100%; }
-.h-100 { height: 100%; }
-
-/* ===== Margin ===== */
-
-.mt-16 { margin-top: var(--space-16); }
-.mt-24 { margin-top: var(--space-24); }
-.mt-32 { margin-top: var(--space-32); }
-.mt-48 { margin-top: var(--space-48); }
-
-.mb-16 { margin-bottom: var(--space-16); }
-.mb-24 { margin-bottom: var(--space-24); }
-.mb-32 { margin-bottom: var(--space-32); }
-.mb-48 { margin-bottom: var(--space-48); }
-
-/* ===== Padding ===== */
-
-.pt-32 { padding-top: var(--space-32); }
-.pt-48 { padding-top: var(--space-48); }
-.pt-64 { padding-top: var(--space-64); }
-
-.pb-32 { padding-bottom: var(--space-32); }
-.pb-48 { padding-bottom: var(--space-48); }
-.pb-64 { padding-bottom: var(--space-64); }
-
-/* ===== Section ===== */
-
-.section {
-    padding: var(--space-80) 0;
+.text-capitalize{
+text-transform:capitalize!important;
 }
 
-/* ===== Text ===== */
-
-.text-left { text-align: left; }
-.text-center { text-align: center; }
-.text-right { text-align: right; }
-
-.text-primary { color: var(--color-primary); }
-.text-secondary { color: var(--color-text-secondary); }
-.text-white { color: var(--color-white); }
-
-.fw-400 { font-weight: var(--font-regular); }
-.fw-500 { font-weight: var(--font-medium); }
-.fw-600 { font-weight: var(--font-semibold); }
-.fw-700 { font-weight: var(--font-bold); }
-
-/* ===== Border Radius ===== */
-
-.rounded-sm { border-radius: var(--radius-sm); }
-.rounded-md { border-radius: var(--radius-md); }
-.rounded-lg { border-radius: var(--radius-lg); }
-.rounded-xl { border-radius: var(--radius-xl); }
-.rounded-pill { border-radius: var(--radius-pill); }
-
-/* ===== Shadow ===== */
-
-.shadow-sm { box-shadow: var(--shadow-sm); }
-.shadow-md { box-shadow: var(--shadow-md); }
-.shadow-lg { box-shadow: var(--shadow-lg); }
-
-/* ===== Background ===== */
-
-.bg-white { background: var(--color-white); }
-.bg-light { background: var(--color-bg-secondary); }
-.bg-primary { background: var(--color-primary); }
-
-/* ===== Overflow ===== */
-
-.overflow-hidden {
-    overflow: hidden;
+.text-nowrap{
+white-space:nowrap!important;
 }
 
-/* ===== Position ===== */
 
-.position-relative {
-    position: relative;
+/* ==========================================================
+   FONT
+========================================================== */
+
+.fw-400{font-weight:400!important}
+.fw-500{font-weight:500!important}
+.fw-600{font-weight:600!important}
+.fw-700{font-weight:700!important}
+
+.fs-12{font-size:12px!important}
+.fs-14{font-size:14px!important}
+.fs-16{font-size:16px!important}
+.fs-18{font-size:18px!important}
+.fs-20{font-size:20px!important}
+.fs-24{font-size:24px!important}
+
+
+/* ==========================================================
+   COLORS
+========================================================== */
+
+.text-primary{
+color:var(--primary-color)!important;
 }
 
-.position-absolute {
-    position: absolute;
+.text-secondary{
+color:var(--secondary-color)!important;
 }
 
-/* ===== Visibility ===== */
-
-.hidden {
-    display: none !important;
+.text-muted{
+color:var(--text-muted)!important;
 }
 
-.visible {
-    display: block !important;
+.bg-primary{
+background:var(--primary-color)!important;
 }
+
+.bg-white{
+background:#fff!important;
+}
+
+
+/* ==========================================================
+   BORDER & RADIUS
+========================================================== */
+
+.border-none{
+border:none!important;
+}
+
+.rounded-sm{
+border-radius:6px!important;
+}
+
+.rounded{
+border-radius:12px!important;
+}
+
+.rounded-lg{
+border-radius:20px!important;
+}
+
+.rounded-full{
+border-radius:999px!important;
+}
+
+
+/* ==========================================================
+   POSITION
+========================================================== */
+
+.position-relative{
+position:relative!important;
+}
+
+.position-absolute{
+position:absolute!important;
+}
+
+.position-fixed{
+position:fixed!important;
+}
+
+
+/* ==========================================================
+   OVERFLOW
+========================================================== */
+
+.overflow-hidden{
+overflow:hidden!important;
+}
+
+.overflow-auto{
+overflow:auto!important;
+}
+
+
+/* ==========================================================
+   SHADOW
+========================================================== */
+
+.shadow-sm{
+box-shadow:0 2px 8px rgba(0,0,0,.08)!important;
+}
+
+.shadow{
+box-shadow:0 8px 20px rgba(0,0,0,.12)!important;
+}
+
+
+/* ==========================================================
+   CURSOR
+========================================================== */
+
+.cursor-pointer{
+cursor:pointer!important;
+}
+
+
+/* ==========================================================
+   IMAGE
+========================================================== */
+
+.img-cover{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.img-contain{
+width:100%;
+height:100%;
+object-fit:contain;
+}
+
+
+/* ==========================================================
+   VISIBILITY
+========================================================== */
+
+.hidden{
+visibility:hidden!important;
+}
+
+.visible{
+visibility:visible!important;
+}
+
+
+/* ==========================================================
+   MOBILE HELPER
+========================================================== */
+
+.hide-mobile{}
+
+.hide-desktop{}
