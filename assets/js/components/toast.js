@@ -175,12 +175,12 @@ toast.classList.add(
     /**
      * Remove Toast
      */
-
-    remove(toast){
 remove(toast){
+
 
     if(!toast)
         return;
+
 
 
     toast.classList.remove(
@@ -198,6 +198,7 @@ remove(toast){
         300
 
     );
+
 
 },
 
