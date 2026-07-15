@@ -43,7 +43,7 @@
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: var(--space-32);
+    gap: 30px;
 }
 
 .nav-menu a {
@@ -61,7 +61,7 @@
 .nav-action {
     display: flex;
     align-items: center;
-    gap: var(--space-16);
+    gap: 12px;
 }
 
 .hamburger {
