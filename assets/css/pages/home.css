@@ -10,8 +10,10 @@
 ========================================================== */
 
 .hero {
-    position: relative;
-    overflow: hidden;
+    .hero{
+    position:relative;
+    overflow:hidden;
+    padding-top:120px;
 }
 
 .hero::before {
@@ -67,9 +69,9 @@
 ========================================================== */
 
 .statistics {
-    margin-top: -40px;
-    position: relative;
-    z-index: 10;
+    position:relative;
+    z-index:10;
+    margin-top:0;
 }
 
 .statistics-grid {
@@ -82,10 +84,8 @@
    CATEGORY
 ========================================================== */
 
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: var(--space-24);
+.category-grid{
+grid-template-columns:repeat(4,1fr);
 }
 
 /* ==========================================================
@@ -96,20 +96,16 @@
     background: var(--color-bg-secondary);
 }
 
-.property-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: var(--space-24);
+.property-grid{
+grid-template-columns:repeat(3,1fr);
 }
 
 /* ==========================================================
    WHY TERAVIA
 ========================================================== */
 
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: var(--space-24);
+.feature-grid{
+grid-template-columns:repeat(3,1fr);
 }
 
 /* ==========================================================
