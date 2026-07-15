@@ -78,6 +78,7 @@ const TERAVIA_FOOTER = {
 
             <!-- Navigation -->
 
+
             <div class="footer-column">
 
 
@@ -85,6 +86,9 @@ const TERAVIA_FOOTER = {
                     Navigasi
                 </h3>
 
+<a href="index.html">
+    Home
+</a>
 
                 <a href="pages/home.html">
     Properti
