@@ -132,7 +132,7 @@ const TERAVIA_MODAL = {
 
 
         modal.classList.add(
-            "show"
+            "active"
         );
 
 
@@ -164,7 +164,7 @@ const TERAVIA_MODAL = {
 
 
         modal.classList.remove(
-            "show"
+            "active"
         );
 
 
@@ -305,6 +305,11 @@ const TERAVIA_MODAL = {
 /**
  * Export Global
  */
+
+export {
+    TERAVIA_MODAL
+};
+
 
 window.TERAVIA_MODAL =
     TERAVIA_MODAL;
