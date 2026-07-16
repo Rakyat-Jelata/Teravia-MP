@@ -12,7 +12,6 @@ init(){
 this.basePath=this.getBasePath();
 this.render();
 this.bindMobileMenu();
-this.setActiveMenu();
 
 },
 
